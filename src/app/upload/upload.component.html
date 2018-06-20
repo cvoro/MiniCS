@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Upload lists:</h2>
+<div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Upload Arrival_list</label>
+  <div class="col-6">
+    <input class="form-control" type="file" (change)="onFileChange($event)" value="Artisanal kale" id="example-text-input">
+  </div>
+  <button class="btn btn-success col-1" >Upload</button>
+</div>
+<div class="form-group row">
+  <label for="example-search-input" class="col-2 col-form-label">Upload Travel_list</label>
+  <div class="col-6">
+    <input class="form-control" type="file" (change)="onFileChange1($event)" value="How do I shoot web" id="example-search-input">
+  </div>
+  <button class="btn btn-success col-1">Upload</button>
+</div>
+</div>
+
+
+<!-- <input  value="{{val}}" (focus)="sendID(i+'-'+j)"> -->
+<!-- <table class="sjs-table">
+  <tr *ngFor="let row of data; let i = index">
+    <td *ngFor="let val of row; let j = index" id="{{i+'-'+j}}" (click)="sendID(i+'-'+j)" >
+      {{val}}
+    </td>
+  </tr>
+</table> -->
+
+
+
+
+<!-- <table class="sjs-table">
+  <tr *ngFor="let row of data1">
+    <td *ngFor="let val of row">
+      {{val}}
+    </td>
+  </tr>
+</table> -->
+
+
+
+

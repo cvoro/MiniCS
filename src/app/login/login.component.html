@@ -1,0 +1,17 @@
+<body class="text-center">
+    <!-- <img id="profile-img" class="profile-img-card" src="../../../assets/avatar.png" /> -->
+  <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">{{ 'login-page.label-please-sing-in' | translate }} </h1>
+    <input type="email" dir="rtl" [(ngModel)]="data.username" name="username" id="input-username" class="form-control" placeholder="{{ 'login-page.label-username' | translate }}" required autofocus>
+    <input type="password"  dir="rtl" [(ngModel)]="data.password" name="password" id="input-password" class="form-control" placeholder="{{ 'login-page.label-password' | translate }}" required>
+    <button class="btn-outline-success btn btn-lg btn-block" (click)="login(data)" type="submit">{{ 'login-page.label-submit' | translate }} </button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+  </form>
+</body>
+<div class="spinner" *ngIf="spinnerLoading">
+    <div class="centered">
+
+        <img src="../../../assets/loading_spinner.gif">
+        <h2><p><b>{{'login-page.label-loading' | translate}}</b></p></h2>
+    </div>
+</div>

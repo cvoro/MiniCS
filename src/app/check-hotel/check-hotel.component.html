@@ -1,0 +1,131 @@
+<div class="container">
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-1">
+            <label for="inputEmail4">ID:</label>
+            <input type="number" [(ngModel)]="passanger.ID" class="form-control" name="passanger.ID" id="inputEmail4" placeholder="ID">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputPassword4">Booking ID:</label>
+            <input type="text" [(ngModel)]="passanger.Booking_Id" class="form-control" name="passanger.Booking_Id" id="inputPassword4" placeholder="Booking ID">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputAddress">Booking Date:</label>
+            <input type="text" [(ngModel)]="passanger.Booking_Date" class="form-control" name="passanger.Booking_Date" id="inputAddress" placeholder="Booking Date">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputAddress2">Hotel Name:</label>
+            <input type="text" [(ngModel)]="passanger.Hotel_Name" name="passanger.Hotel_Name"  class="form-control" id="inputAddress2" placeholder="Hotel Name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputCity">Pax name:</label>
+            <input type="text" [(ngModel)]="passanger.Pax_Name" name="passanger.Pax_Name" class="form-control" id="Paxname" placeholder="Pax name">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Number Of Pax:</label>
+            <input type="text" [(ngModel)]="passanger.Number_Of_Pax" name="passanger.Number_Of_Pax" class="form-control" id="Pax name" placeholder="Num. of pax">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Supplier reference:</label>
+            <input type="text" [(ngModel)]="passanger.Supplier_reference" name="passanger.Supplier_reference" class="form-control" id="inputZip" placeholder="Supplier reference">
+          </div>
+      
+            </div>
+   
+          <!-- <div class="form-row">
+              <div class="form-group col-md-2">
+                  <label for="inputState">Room number:</label>
+                  <input type="text" [(ngModel)]="passanger.Room_number" name="passanger.Room_number" class="form-control" id="Pax name" placeholder="Room number">
+                </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Passenger type:</label>
+                <input type="text" [(ngModel)]="passanger.Passenger_type" name="passanger.Passenger_type" class="form-control" id="inputZip" placeholder="Passenger type">
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="inputZip">Check by REP:</label>
+                  <input type="checkbox" [(ngModel)]="passanger.Check_by_REP" name="passanger.Check_by_REP" class="form-control" id="inputZip" placeholder="Check by REP">
+                </div>
+              <div class="form-group col-md-2">
+                  <label for="inputZip">Check by LC:</label>
+                  <input type="checkbox" [(ngModel)]="passanger.Check_by_LC" name="passanger.Check_by_LC" class="form-control" id="inputZip" placeholder="Check by LC">
+                </div>
+              <div class="form-group col-md-3">
+                  <label for="inputZip">Leaving from:</label>
+                  <input type="text" [(ngModel)]="passanger.Leaving_From" name="passanger.Leaving_From" class="form-control" id="inputZip" placeholder="Leaving from">
+                </div>
+          </div> -->
+          <!-- <div class="form-row">
+              <div class="form-group col-md-3">
+                  <label for="inputState">Supplier arrival:</label>
+                  <input type="text" [(ngModel)]="passanger.Supplier_Arrival" name="passanger.Supplier_Arrival" class="form-control" id="Pax name" placeholder="Supplier arrival">
+                </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">DateTime arrival:</label>
+                <input type="text" [(ngModel)]="passanger.DateTime_Arrival" name="passanger.DateTime_Arrival" class="form-control" id="inputZip" placeholder="DateTime arrival">
+              </div>
+              <div class="form-group col-md-3">
+                  <label for="inputZip">Terminal arrival:</label>
+                  <input type="text" [(ngModel)]="passanger.Terminal_Arrival" name="passanger.Terminal_Arrival" class="form-control" id="inputZip" placeholder="Terminal arrival">
+                </div>
+              <div class="form-group col-md-3">
+                  <label for="inputZip">Car name arrival:</label>
+                  <input type="text" [(ngModel)]="passanger.Car_Name_Arrival" name="passanger.Car_Name_Arrival" class="form-control" id="inputZip" placeholder="Car name arrival">
+                </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-4">
+                  <label for="inputState">Car transfer type arrival:</label>
+                  <input type="text" [(ngModel)]="passanger.Car_Transfer_Type_Arrival" name="passanger.Car_Transfer_Type_Arrival" class="form-control" id="Pax name" placeholder="Car transfer type aArrival">
+                </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">Airline arrival:</label>
+                <input type="text" [(ngModel)]="passanger.Airline_Arrival" name="passanger.Airline_Arrival" class="form-control" id="inputZip" placeholder="Airline arrival">
+              </div>
+              <div class="form-group col-md-3">
+                  <label for="inputZip">Flight No. arrival:</label>
+                  <input type="text" [(ngModel)]="passanger.FlightNo_Arrival" name="passanger.FlightNo_Arrival" class="form-control" id="inputZip" placeholder="Flight No. Arrival">
+                </div>
+              <div class="form-group col-md-2">
+                  <label for="inputZip">Going to:</label>
+                  <input type="text" [(ngModel)]="passanger.Going_to" name="passanger.Going_to" class="form-control" id="inputZip" placeholder="Going to">
+                </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-3">
+                  <label for="inputState">Supplier Departure:</label>
+                  <input type="text" [(ngModel)]="passanger.Supplier_Departure" name="passanger.Supplier_Departure" class="form-control" id="Pax name" placeholder="Supplier departure">
+                </div>
+              <div class="form-group col-md-3">
+                <label for="inputZip">DateTime Departure:</label>
+                <input type="text" [(ngModel)]="passanger.DateTime_Departure" name="passanger.DateTime_Departure" class="form-control" id="inputZip" placeholder="DateTime departure">
+              </div>
+              <div class="form-group col-md-3">
+                  <label for="inputZip">Terminal departure:</label>
+                  <input type="text" [(ngModel)]="passanger.Terminal_Departure" name="passanger.Terminal_Departure" class="form-control" id="inputZip" placeholder="Terminal departure">
+                </div>
+              <div class="form-group col-md-3">
+                  <label for="inputZip">Car name departure:</label>
+                  <input type="text" [(ngModel)]="passanger.Car_Name_Departure" name="passanger.Car_Name_Departure" class="form-control" id="inputZip" placeholder="Car name departure">
+                </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-4">
+                  <label for="inputState">Car transfer type departure:</label>
+                  <input type="text" [(ngModel)]="passanger.Car_Transfer_Type_Departure" name="passanger.Car_Transfer_Type_Departure" class="form-control" id="Pax name" placeholder="Car transfer type departure">
+                </div>
+              <div class="form-group col-md-4">
+                <label for="inputZip">Airline departure:</label>
+                <input type="text" [(ngModel)]="passanger.Airline_Departure" name="passanger.Airline_Departure" class="form-control" id="inputZip" placeholder="Airline departure">
+              </div>
+              <div class="form-group col-md-3">
+                  <label for="inputZip">Flight No. departure:</label>
+                  <input type="text" [(ngModel)]="passanger.FlightNo_Departure" name="passanger.FlightNo_Departure" class="form-control" id="inputZip" placeholder="Flight No. departure">
+                </div>
+    
+          </div> -->
+    
+          <button class="btn btn-success float-right">Save</button>
+      </form>
+</div>

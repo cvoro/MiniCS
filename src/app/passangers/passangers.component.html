@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Add passanger type:</h2>
+<div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Type:</label>
+  <div class="col-6">
+    <input class="form-control" [(ngModel)]="type" type="text" name="type" placeholder="Passanger type" id="example-text-input">
+  </div>
+  <button class="btn btn-success col-1"  *ngIf="!editButtonClicked" (click)="addType(type)" >Add</button>
+  <button class="btn btn-success col-1" *ngIf="editButtonClicked" (click)="save(type)" >Save</button>
+</div>
+
+<div class="col-9">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Type</th>
+        <th scope="col">Delete/Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let li of list;let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{li}}</td>
+        <td><button class="btn btn-danger" (click)="delete(i)">X</button> <button class="btn btn-primary" (click)="edit(i)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

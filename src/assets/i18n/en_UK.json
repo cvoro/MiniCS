@@ -1,0 +1,15 @@
+{
+    "login-page":{
+        "label-please-sing-in": "Please sing in",
+        "label-username": "Username",
+        "label-password": "Password",
+        "label-submit": "Submit"
+    },
+    "admin-panel":{
+        "label-username": "Username",
+        "label-password": "Password",
+        "label-first-name": "First name",
+        "label-last-name": "Last name",
+        "label-add": "Add"
+    }
+}

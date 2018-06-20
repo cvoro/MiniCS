@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" >Mini CS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+   
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle style="cursor: pointer;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin panel
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" routerLink="upload">Upload</a>
+          <a class="dropdown-item" routerLink="consultants">Add Consultant</a>
+          <a class="dropdown-item" routerLink="hotels">Manage Hotels</a>
+          <a class="dropdown-item" routerLink="passangers">Passanger type</a>
+        </div>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link" routerLink="travel-list">Travel list <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" routerLink="find-passanger">Find passanger <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item ">
+              <a class="nav-link" routerLink="check-hotel">Check hotel <span class="sr-only">(current)</span></a>
+            </li>
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle style="cursor: pointer;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Change language
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" style="cursor: pointer;" (click)="changeLang('en_UK')">English</a>
+          <a class="dropdown-item" style="cursor: pointer;" (click)="changeLang('fa_FA')">Farsi</a>
+        </div>
+      </li>
+
+      <!-- (click)="changeLang('en_US')" -->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <!-- <li class="nav-item ">
+            <a class="nav-link" routerLink="login">Logout<span class="sr-only">(current)</span></a>
+          </li> -->
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="نام کاربری" aria-label="نام کاربری">
+      <input class="form-control mr-sm-2" type="search" placeholder="کلمه عبور" aria-label="کلمه عبور">-->
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" type="submit">Logout</button> 
+    </form>
+  </div>
+</nav>
