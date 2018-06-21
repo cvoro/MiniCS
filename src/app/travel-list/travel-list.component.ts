@@ -60,8 +60,8 @@ export class TravelListComponent implements OnInit {
       Number_of_rooms: {
            title: 'Number of rooms'
       },
-      Leasuremant_customer: {
-           title: 'Leasuremant customer'
+      Leisure_consultants: {
+           title: 'Leisure Consultants'
       },
       Contact_number: {
            title: 'Contact number'
