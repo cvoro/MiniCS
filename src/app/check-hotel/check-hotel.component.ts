@@ -25,6 +25,6 @@ export class CheckHotelComponent implements OnInit {
 
   sendBookingID(bookignID) {
     localStorage.setItem('bookingID', bookignID);
-    this.router.navigate(['/find-passanger']);
+    this.router.navigate(['/find-passenger']);
   }
 }

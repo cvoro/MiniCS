@@ -1,6 +1,6 @@
 {
     "login-page":{
-        "label-please-sing-in": "Please sing in",
+        "label-please-sing-in": "Please sign in",
         "label-username": "Username",
         "label-password": "Password",
         "label-submit": "Submit"
