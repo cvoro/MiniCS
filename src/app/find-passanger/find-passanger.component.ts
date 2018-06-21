@@ -25,6 +25,7 @@ export class FindPassangerComponent implements OnInit {
   }
 
   findPassanger(bookingID) {
+    this.passanger = {};
     for (let i = 0; i < this.passangersList.length; i++) {
         if (this.passangersList[i].Booking_Id === bookingID) {
           console.log(this.passangersList[i]);
@@ -33,7 +34,6 @@ export class FindPassangerComponent implements OnInit {
     }
 
     if (Object.keys(this.passanger).length === 0) {
-        // this.message = 'No passenger found with that booking ID!';
         this.toastr.error('No passenger found with that booking ID!');
         this.passanger = {};
     } else {
