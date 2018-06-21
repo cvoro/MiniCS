@@ -8,9 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  admin;
+  loggedIn;
 
   constructor(private translate: TranslateService, private router: Router) {
     translate.setDefaultLang('fa_FA');
+    setInterval(() => {
+      if (localStorage.getItem('loggedInAs') === 'admin'){
+        this.admin = true;
+        this.loggedIn = true;
+      } else {
+        this.admin = false;
+        this.loggedIn = false;
+      }
+
+      if(localStorage.getItem('loggedInAs')) {
+        this.loggedIn = true;
+      }
+    }, 100);
   }
 
   ngOnInit() {}
@@ -20,6 +35,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    localStorage.removeItem('loggedInAs');
     this.router.navigate(['/login']);
   }
 }

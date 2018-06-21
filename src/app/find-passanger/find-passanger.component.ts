@@ -11,7 +11,9 @@ export class FindPassangerComponent implements OnInit {
   passangersList = data;
 
   passanger = {};
-  constructor() { }
+  constructor() {
+    this.findPassanger(localStorage.getItem('bookingID'));
+   }
 
   ngOnInit() {
   }

@@ -7,7 +7,7 @@
           </div>
           <div class="form-group col-md-3">
             <label for="inputPassword4">Booking ID:</label>
-            <input type="text" [(ngModel)]="passanger.Booking_Id" class="form-control" name="passanger.Booking_Id" id="inputPassword4" placeholder="Booking ID">
+            <input type="text" [(ngModel)]="passanger.Booking_Id"  class="form-control" name="passanger.Booking_Id" id="inputPassword4" placeholder="Booking ID">
           </div>
           <div class="form-group col-md-4">
             <label for="inputAddress">Booking Date:</label>
@@ -24,8 +24,8 @@
             <input type="text" [(ngModel)]="passanger.Pax_Name" name="passanger.Pax_Name" class="form-control" id="Paxname" placeholder="Pax name">
           </div>
           <div class="form-group col-md-4">
-            <label for="inputState">Number Of Pax:</label>
-            <input type="text" [(ngModel)]="passanger.Number_Of_Pax" name="passanger.Number_Of_Pax" class="form-control" id="Pax name" placeholder="Num. of pax">
+            <label for="inputZip">DateTime arrival:</label>
+            <input type="text" [(ngModel)]="passanger.DateTime_Arrival" name="passanger.DateTime_Arrival" class="form-control" id="inputZip" placeholder="DateTime arrival">
           </div>
           <div class="form-group col-md-4">
             <label for="inputZip">Supplier reference:</label>
@@ -33,6 +33,7 @@
           </div>
       
             </div>
+            <button type="submit" (click)="sendBookingID(passanger.Booking_Id)" class="btn btn-info">More info</button>
    
           <!-- <div class="form-row">
               <div class="form-group col-md-2">
@@ -126,6 +127,5 @@
     
           </div> -->
     
-          <button class="btn btn-success float-right">Save</button>
       </form>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from '../travel-list/excelMock';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-hotel',
@@ -9,8 +10,8 @@ import { data } from '../travel-list/excelMock';
 export class CheckHotelComponent implements OnInit {
   data = data;
   loggedUser;
-  passanger;
-  constructor() {
+  passanger = {};
+  constructor(private router: Router) {
     this.loggedUser = localStorage.getItem('loggedInAs');
     for (let i = 0; i < this.data.length; i++) {
       if (this.data[i].Pax_Name === this.loggedUser) {
@@ -22,4 +23,8 @@ export class CheckHotelComponent implements OnInit {
   ngOnInit() {
   }
 
+  sendBookingID(bookignID) {
+    localStorage.setItem('bookingID', bookignID);
+    this.router.navigate(['/find-passanger']);
+  }
 }

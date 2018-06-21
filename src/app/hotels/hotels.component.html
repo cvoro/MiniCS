@@ -1,6 +1,13 @@
 <div class="container">
     <div class="form-row">
-        <div class=" col-6  vl">
+        <div class=" col-lg-6 col-sm-12  vl">
+            <h2>Find hotel by name:</h2>
+            <div class="form-group row">
+               <div class="col-8">
+                 <input class="form-control" dir="rtl" type="text" [(ngModel)]="searchText.Hotel" (keypress)="check()" value="How do I shoot web" id="example-search-input">
+               </div>
+               
+             </div>
     <h2>Hotels List:</h2>
     <div class="form-group row" *ngFor="let hotel of hotelsList  | filterBy: searchText">
       <div class="col-6">
@@ -19,21 +26,15 @@
     <li *ngIf="(hotelsList | filterBy: searchText).length === 0">No matching elements</li>
 
     </div>
-    <div class=" col-6">
+    <!-- <div class=" col-6">
  <h2>Find hotel by name:</h2>
  <div class="form-group row">
-    <!-- <label for="example-search-input" class="col-4 col-form-label">Upload Travel_list</label> -->
     <div class="col-8">
       <input class="form-control" dir="rtl" type="text" [(ngModel)]="searchText.Hotel" (keypress)="check()" value="How do I shoot web" id="example-search-input">
     </div>
-    <!-- <button class="btn btn-success col-3">Find</button> -->
-    <!-- <ul>
-        <li *ngFor="let c of secondHotelList">
-          {{c.Hotel }}
-        </li>
-      </ul> -->
+
   </div>
-    </div>
+    </div> -->
     </div>
     
 

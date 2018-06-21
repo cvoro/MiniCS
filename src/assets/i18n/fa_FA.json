@@ -12,5 +12,15 @@
         "label-first-name": "نام کوچک",
         "label-last-name": "نام خانوادگی",
         "label-add": "اضافه کردن"
+    },
+    "wellcome-page":{
+        "title": "خوش آمدید به صفحه اصلی"
+    },
+    "nav-bar": {
+        "label-admin-panel": "پنل مدیریت",
+        "label-travel-list": "لیست سفر",
+        "label-find-passenger": "یافتن مسافر",
+        "label-check-hotel": "بررسی هتل",
+        "label-change-language": "تغییر زبان"
     }
 }

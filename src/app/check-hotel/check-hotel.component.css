@@ -1,0 +1,15 @@
+.container {
+    margin-top: 50px;
+}
+
+label{
+    font-weight: 600;
+}
+
+form {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    padding-bottom: 50px;
+    /* margin: 10px; */
+}

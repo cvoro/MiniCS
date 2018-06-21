@@ -7,29 +7,29 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
    
-      <li class="nav-item dropdown" ngbDropdown>
+      <li class="nav-item dropdown" ngbDropdown *ngIf="admin">
         <a class="nav-link dropdown-toggle" ngbDropdownToggle style="cursor: pointer;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Admin panel
+          {{'nav-bar.label-admin-panel' | translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
           <a class="dropdown-item" routerLink="upload">Upload</a>
           <a class="dropdown-item" routerLink="consultants">Add Consultant</a>
           <a class="dropdown-item" routerLink="hotels">Manage Hotels</a>
-          <a class="dropdown-item" routerLink="passangers">Passanger type</a>
+          <a class="dropdown-item" routerLink="passenger-type">Passanger type</a>
         </div>
       </li>
-      <li class="nav-item ">
-          <a class="nav-link" routerLink="travel-list">Travel list <span class="sr-only">(current)</span></a>
+      <li class="nav-item " *ngIf="loggedIn">
+          <a class="nav-link" routerLink="travel-list">{{'nav-bar.label-travel-list' | translate}} <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item ">
-            <a class="nav-link" routerLink="find-passanger">Find passanger <span class="sr-only">(current)</span></a>
+        <li class="nav-item " *ngIf="loggedIn">
+            <a class="nav-link" routerLink="find-passenger">{{'nav-bar.label-find-passenger' | translate}} <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item ">
-              <a class="nav-link" routerLink="check-hotel">Check hotel <span class="sr-only">(current)</span></a>
+          <li class="nav-item " *ngIf="loggedIn">
+              <a class="nav-link" routerLink="check-hotel">{{'nav-bar.label-check-hotel' | translate}}<span class="sr-only">(current)</span></a>
             </li>
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" ngbDropdownToggle style="cursor: pointer;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Change language
+            {{'nav-bar.label-change-language' | translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
           <a class="dropdown-item" style="cursor: pointer;" (click)="changeLang('en_UK')">English</a>
@@ -45,7 +45,7 @@
           </li> -->
       <!-- <input class="form-control mr-sm-2" type="search" placeholder="نام کاربری" aria-label="نام کاربری">
       <input class="form-control mr-sm-2" type="search" placeholder="کلمه عبور" aria-label="کلمه عبور">-->
-      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" type="submit">Logout</button> 
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" *ngIf="loggedIn" type="submit">Logout</button> 
     </form>
   </div>
 </nav>
