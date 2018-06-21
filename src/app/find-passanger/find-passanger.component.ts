@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from '../travel-list/excelMock';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-find-passanger',
@@ -9,10 +10,15 @@ import { data } from '../travel-list/excelMock';
 export class FindPassangerComponent implements OnInit {
   bookingID;
   passangersList = data;
+  message = '';
 
   passanger = {};
-  constructor() {
-    this.findPassanger(localStorage.getItem('bookingID'));
+  constructor(private toastr: ToastrService) {
+    console.log(localStorage.getItem('bookingID'));
+    
+    if (localStorage.getItem('bookingID') != 'undefined') {
+      this.findPassanger(localStorage.getItem('bookingID'));
+    }
    }
 
   ngOnInit() {
@@ -24,6 +30,14 @@ export class FindPassangerComponent implements OnInit {
           console.log(this.passangersList[i]);
           this.passanger = this.passangersList[i];
         }
+    }
+
+    if (Object.keys(this.passanger).length === 0) {
+        // this.message = 'No passenger found with that booking ID!';
+        this.toastr.error('No passenger found with that booking ID!');
+        this.passanger = {};
+    } else {
+      this.message = '';
     }
   }
 

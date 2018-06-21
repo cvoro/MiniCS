@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
   admin;
   loggedIn;
 
-  constructor(private translate: TranslateService, private router: Router) {
+  constructor(private translate: TranslateService, private router: Router, private toastr: ToastrService) {
     translate.setDefaultLang('fa_FA');
     setInterval(() => {
       if (localStorage.getItem('loggedInAs') === 'admin'){
@@ -22,10 +23,10 @@ export class NavbarComponent implements OnInit {
         this.loggedIn = false;
       }
 
-      if(localStorage.getItem('loggedInAs')) {
+      if (localStorage.getItem('loggedInAs')) {
         this.loggedIn = true;
       }
-    }, 100);
+    }, 300);
   }
 
   ngOnInit() {}
@@ -37,5 +38,6 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('loggedInAs');
     this.router.navigate(['/login']);
+    this.toastr.error('Logged out!');
   }
 }

@@ -17,3 +17,8 @@ form {
 input {
     width: 100%;
 }
+
+.form-control {
+
+    height: 34px;
+}

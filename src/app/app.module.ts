@@ -5,7 +5,6 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { MiniCSRoutingModule } from './app-routing.module';
 import { UploadComponent } from './upload/upload.component';
@@ -26,6 +25,10 @@ import { FilterPipe } from './filter.pipe';
 
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { CheckHotelComponent } from './check-hotel/check-hotel.component';
+
+
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     HttpClientModule,
     NgbModule.forRoot(),
     TranslateModule.forRoot({
@@ -58,7 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
           deps: [HttpClient]
       }
     }),
-    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     MiniCSRoutingModule,
     Ng2SmartTableModule,
     FormsModule,

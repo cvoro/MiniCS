@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
   };
-  constructor(private translate: TranslateService, private router: Router) {
+  constructor(private translate: TranslateService, private router: Router, private toastr: ToastrService) {
     translate.setDefaultLang('fa_FA');
   }
 
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       this.spinnerLoading = false;
       this.router.navigate(['/wellcome']);
+      this.toastr.success('Logged in!');
     }, 1500);
   }
 
