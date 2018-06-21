@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { data } from '../travel-list/excelMock';
 import { ToastrService } from 'ngx-toastr';
 
@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './find-passanger.component.html',
   styleUrls: ['./find-passanger.component.css']
 })
-export class FindPassangerComponent implements OnInit {
+export class FindPassangerComponent implements OnInit, OnDestroy {
   bookingID;
   passangersList = data;
   message = '';
@@ -22,6 +22,12 @@ export class FindPassangerComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  savePassengerInfo() {
+    setTimeout(() => {
+      this.toastr.success('Passenger data updated!');
+    }, 1000);
   }
 
   findPassanger(bookingID) {
@@ -39,6 +45,11 @@ export class FindPassangerComponent implements OnInit {
     } else {
       this.message = '';
     }
+  }
+
+  ngOnDestroy() {
+    this.passanger = {};
+    localStorage.setItem('bookingID', undefined)
   }
 
 }

@@ -5,14 +5,14 @@
   <div class="col-6">
     <input class="form-control" type="file" (change)="onFileChange($event)" value="Artisanal kale" id="example-text-input">
   </div>
-  <button class="btn btn-success col-1" >Upload</button>
+  <button class="btn btn-success col-1" (click)="fileUploaded()" >Upload</button>
 </div>
 <div class="form-group row">
   <label for="example-search-input" class="col-2 col-form-label">Upload Travel_list</label>
   <div class="col-6">
     <input class="form-control" type="file" (change)="onFileChange1($event)" value="How do I shoot web" id="example-search-input">
   </div>
-  <button class="btn btn-success col-1">Upload</button>
+  <button class="btn btn-success col-1" (click)="fileUploaded()">Upload</button>
 </div>
 </div>
 

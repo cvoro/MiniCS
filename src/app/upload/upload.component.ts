@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class UploadComponent implements OnInit {
   fileName: string = 'SheetJS.xlsx';
   data1: {}[];
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -63,6 +64,12 @@ export class UploadComponent implements OnInit {
   // sendID(params) {
   //   console.log(params)
   // }
+
+  fileUploaded() {
+    setTimeout(() => {
+        this.toastr.success('File Uploaded!');
+    }, 1000);
+  }
 
 
   onFileChange1(evt: any) {
