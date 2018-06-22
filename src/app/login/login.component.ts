@@ -30,5 +30,10 @@ export class LoginComponent implements OnInit {
       this.toastr.success('Logged in!');
     }, 1500);
   }
+  
+  addStyle() {
+    document.getElementById("input-username").style.direction = "ltr"
+    document.getElementById("input-password").style.direction = "ltr"
+  }
 
 }

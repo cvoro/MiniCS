@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-passangers',
@@ -11,9 +12,23 @@ export class PassangersComponent implements OnInit {
   editType;
   editButtonClicked = false;
   editIndex;
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit() {
+    this.changeDirection(this.translate.currentLang);
+
+    this.translate.onLangChange.subscribe(lang => {
+      this.changeDirection(lang.lang);
+    });
+  }
+
+  changeDirection(lang) {
+    let items = document.getElementById('example-text-input');
+      if (lang === 'en_UK') {
+        items.style.direction = 'ltr';
+      } else {
+        items.style.direction = 'rtl';
+      }
   }
 
   addType(type) {

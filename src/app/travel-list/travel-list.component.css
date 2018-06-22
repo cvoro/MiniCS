@@ -59,8 +59,13 @@ h2{
       padding-right: 15px;
   }
 
-  :host /deep/ ng2-smart-table thead > tr > th { direction: rtl; }
+  /* :host /deep/ ng2-smart-table thead > tr > th { direction: rtl; } */
+
+  /* ng2-smart-table thead > tr > th {
+    direction: rtl;
+  } */
 
   input .form-control{
     color: red;
   }
+

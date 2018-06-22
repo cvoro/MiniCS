@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {settings, data} from './excelMock';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-travel-list',
@@ -11,11 +12,7 @@ export class TravelListComponent implements OnInit {
   // settings = settings;
   data = data;
   
-  constructor(private _sanitizer: DomSanitizer) { 
-
-
-    
-  }
+  constructor(private _sanitizer: DomSanitizer, private translate: TranslateService) { }
 
   public settings = {
     // add: {
@@ -149,6 +146,22 @@ export class TravelListComponent implements OnInit {
   public input: string = '<input type="checkbox">';
 
   ngOnInit() {
+    this.changeDirection(this.translate.currentLang);
+
+    this.translate.onLangChange.subscribe(lang => {
+      this.changeDirection(lang.lang);
+    });
+  }
+
+  changeDirection(lang) {
+    let items = document.getElementsByTagName('th');
+    for (let i = 0; i < items.length; i++) {
+      if (lang === 'en_UK') {
+        items[i].style.direction = 'ltr';
+      } else {
+        items[i].style.direction = 'rtl';
+      }
+    }
   }
 
 }

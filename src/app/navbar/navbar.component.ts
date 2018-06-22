@@ -11,9 +11,11 @@ import { ToastrService } from 'ngx-toastr';
 export class NavbarComponent implements OnInit {
   admin;
   loggedIn;
+  loggedREP;
 
   constructor(private translate: TranslateService, private router: Router, private toastr: ToastrService) {
     translate.setDefaultLang('fa_FA');
+    translate.use('fa_FA');
     setInterval(() => {
       if (localStorage.getItem('loggedInAs') === 'admin'){
         this.admin = true;
@@ -25,6 +27,12 @@ export class NavbarComponent implements OnInit {
 
       if (localStorage.getItem('loggedInAs')) {
         this.loggedIn = true;
+      }
+
+      if (localStorage.getItem('loggedInAs') != 'rep') {
+        this.loggedREP = false;
+      } else {
+        this.loggedREP = true;
       }
     }, 300);
   }

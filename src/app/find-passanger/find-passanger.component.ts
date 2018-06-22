@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { data } from '../travel-list/excelMock';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-find-passanger',
@@ -13,7 +14,7 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   message = '';
 
   passanger = {};
-  constructor(private toastr: ToastrService) {
+  constructor(private toastr: ToastrService, private translate: TranslateService) {
     console.log(localStorage.getItem('bookingID'));
     
     if (localStorage.getItem('bookingID') != 'undefined') {
@@ -21,7 +22,23 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
     }
    }
 
-  ngOnInit() {
+   ngOnInit() {
+    this.changeDirection(this.translate.currentLang);
+
+    this.translate.onLangChange.subscribe(lang => {
+      this.changeDirection(lang.lang);
+    });
+  }
+
+  changeDirection(lang) {
+    let items = document.getElementsByTagName('input');
+    for (let i = 0; i < items.length; i++) {
+      if (lang === 'en_UK') {
+        items[i].style.direction = 'ltr';
+      } else {
+        items[i].style.direction = 'rtl';
+      }
+    }
   }
 
   savePassengerInfo() {

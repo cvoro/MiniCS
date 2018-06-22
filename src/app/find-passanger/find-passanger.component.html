@@ -50,6 +50,18 @@
               </div>
         </div>
         <div class="form-row">
+          <div class="form-group col-md-4">
+              <label for="inputZip">DateTime arrival</label>
+              <input type="text" [(ngModel)]="passanger.DateTime_Arrival"  name="passanger.DateTime_Arrival" class="form-control" id="inputZip" >
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputZip">DateTime Departure</label>
+                <input type="text" [(ngModel)]="passanger.DateTime_Departure"  name="passanger.DateTime_Departure" class="form-control" id="inputZip" >
+              </div>
+
+        </div>
+        <div class="form-row">
+      
           <div class="col-md-11"></div>
           <button class="btn btn-success float-right" (click)="savePassengerInfo()">Save</button>
 
