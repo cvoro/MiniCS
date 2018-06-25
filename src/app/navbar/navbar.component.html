@@ -12,10 +12,10 @@
           {{'nav-bar.label-admin-panel' | translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
-          <a class="dropdown-item" routerLink="upload">Upload</a>
-          <a class="dropdown-item" routerLink="consultants">Add Consultant</a>
-          <a class="dropdown-item" routerLink="hotels">Manage Hotels</a>
-          <a class="dropdown-item" routerLink="passenger-type">Passenger type</a>
+          <a class="dropdown-item" routerLink="upload"> {{'nav-bar.label-admin-panel-upload' | translate}}</a>
+          <a class="dropdown-item" routerLink="consultants"> {{'nav-bar.label-admin-panel-add-consultant' | translate}}</a>
+          <a class="dropdown-item" routerLink="hotels"> {{'nav-bar.label-admin-panel-manage-hotels' | translate}}</a>
+          <a class="dropdown-item" routerLink="passenger-type"> {{'nav-bar.label-admin-panel-passenger-type' | translate}}</a>
         </div>
       </li>
       <li class="nav-item " *ngIf="loggedIn">
@@ -32,8 +32,8 @@
             {{'nav-bar.label-change-language' | translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
-          <a class="dropdown-item" style="cursor: pointer;" (click)="changeLang('en_UK')">English</a>
-          <a class="dropdown-item" style="cursor: pointer;" (click)="changeLang('fa_FA')">Farsi</a>
+          <a class="dropdown-item" style="cursor: pointer;" (click)="changeLang('en_UK')"> {{'nav-bar.label-change-language-english' | translate}}</a>
+          <a class="dropdown-item" style="cursor: pointer;" (click)="changeLang('fa_FA')">{{'nav-bar.label-change-language-farsi' | translate}}</a>
         </div>
       </li>
 
@@ -45,7 +45,7 @@
           </li> -->
       <!-- <input class="form-control mr-sm-2" type="search" placeholder="نام کاربری" aria-label="نام کاربری">
       <input class="form-control mr-sm-2" type="search" placeholder="کلمه عبور" aria-label="کلمه عبور">-->
-      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" *ngIf="loggedIn" type="submit">Logout</button> 
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" *ngIf="loggedIn" type="submit">{{'nav-bar.label-logout' | translate}}</button> 
     </form>
   </div>
 </nav>

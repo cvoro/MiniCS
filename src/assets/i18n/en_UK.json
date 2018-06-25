@@ -18,10 +18,17 @@
     },
     "nav-bar": {
         "label-admin-panel": "Admin panel",
+        "label-admin-panel-upload": "Upload",
+        "label-admin-panel-add-consultant": "Add Consultant",
+        "label-admin-panel-manage-hotels": "Manage Hotels",
+        "label-admin-panel-passenger-type": "Passenger type",
         "label-travel-list": "Travel list",
         "label-find-passenger": "Find passenger",
         "label-check-hotel": "Check hotel",
-        "label-change-language": "Change language"
+        "label-change-language": "Change language",
+        "label-change-language-english": "English",
+        "label-change-language-farsi": "Farsi",
+        "label-logout": "Logout"
     },
     "check-hotel": {
         "label-id": "ID",

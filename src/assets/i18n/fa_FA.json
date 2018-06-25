@@ -18,10 +18,17 @@
     },
     "nav-bar": {
         "label-admin-panel": "پنل مدیریت",
+        "label-admin-panel-upload": "بارگذاری",
+        "label-admin-panel-add-consultant": "مشاوران را اضافه کنید",
+        "label-admin-panel-manage-hotels": "مدیریت هتل ها",
+        "label-admin-panel-passenger-type": "نوع مسافر",
         "label-travel-list": "لیست سفر",
         "label-find-passenger": "یافتن مسافر",
         "label-check-hotel": "بررسی هتل",
-        "label-change-language": "تغییر زبان"
+        "label-change-language": "تغییر زبان",
+        "label-change-language-english": "انگلیسی",
+        "label-change-language-farsi": "فارسی",
+        "label-logout": "خروج"
     },
     "check-hotel": {
         "label-id": "شناسه",
