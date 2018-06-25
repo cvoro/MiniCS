@@ -2,38 +2,38 @@
     <form>
         <div class="form-row">
           <div class="form-group col-md-1">
-            <label for="inputEmail4">ID:</label>
-            <input type="number" [(ngModel)]="passanger.ID" class="form-control" name="passanger.ID" id="inputEmail4" placeholder="ID">
+            <label for="inputEmail4">{{'check-hotel.label-id' | translate}}:</label>
+            <input type="text" [(ngModel)]="passanger.ID" class="form-control" name="passanger.ID" id="inputEmail4" >
           </div>
           <div class="form-group col-md-3">
-            <label for="inputPassword4">Booking ID:</label>
-            <input type="text" [(ngModel)]="passanger.Booking_Id"  class="form-control" name="passanger.Booking_Id" id="inputPassword4" placeholder="Booking ID">
+            <label for="inputPassword4">{{'check-hotel.label-booking-id' | translate}}:</label>
+            <input type="text" [(ngModel)]="passanger.Booking_Id"  class="form-control" name="passanger.Booking_Id" id="inputPassword4" >
           </div>
           <div class="form-group col-md-4">
-            <label for="inputAddress">Booking Date:</label>
-            <input type="text" [(ngModel)]="passanger.Booking_Date" class="form-control" name="passanger.Booking_Date" id="inputAddress" placeholder="Booking Date">
+            <label for="inputAddress">{{'check-hotel.label-booking-date' | translate}}:</label>
+            <input type="text" [(ngModel)]="passanger.Booking_Date" class="form-control" name="passanger.Booking_Date" id="inputAddress" >
           </div>
           <div class="form-group col-md-4">
-            <label for="inputAddress2">Hotel Name:</label>
-            <input type="text" [(ngModel)]="passanger.Hotel_Name" name="passanger.Hotel_Name"  class="form-control" id="inputAddress2" placeholder="Hotel Name">
+            <label for="inputAddress2">{{'check-hotel.label-hotel-name' | translate}}:</label>
+            <input type="text" [(ngModel)]="passanger.Hotel_Name" name="passanger.Hotel_Name"  class="form-control" id="inputAddress2" >
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="inputCity">Pax name:</label>
-            <input type="text" [(ngModel)]="passanger.Pax_Name" name="passanger.Pax_Name" class="form-control" id="Paxname" placeholder="Pax name">
+            <label for="inputCity">{{'check-hotel.label-pax-name' | translate}}:</label>
+            <input type="text" [(ngModel)]="passanger.Pax_Name" name="passanger.Pax_Name" class="form-control" id="Paxname" >
           </div>
           <div class="form-group col-md-4">
-            <label for="inputZip">DateTime arrival:</label>
-            <input type="text" [(ngModel)]="passanger.DateTime_Arrival" name="passanger.DateTime_Arrival" class="form-control" id="inputZip" placeholder="DateTime arrival">
+            <label for="inputZip">{{'check-hotel.label-datetime-arrival' | translate}}:</label>
+            <input type="text" [(ngModel)]="passanger.DateTime_Arrival" name="passanger.DateTime_Arrival" class="form-control" id="inputZip" >
           </div>
           <div class="form-group col-md-4">
-            <label for="inputZip">Supplier reference:</label>
-            <input type="text" [(ngModel)]="passanger.Supplier_reference" name="passanger.Supplier_reference" class="form-control" id="inputZip" placeholder="Supplier reference">
+            <label for="inputZip">{{'check-hotel.label-supplier-reference' | translate}}:</label>
+            <input type="text" [(ngModel)]="passanger.Supplier_reference" name="passanger.Supplier_reference" class="form-control" id="inputZip" >
           </div>
       
             </div>
-            <button type="submit" (click)="sendBookingID(passanger.Booking_Id)" class="btn btn-info">More info</button>
+            <button type="submit" (click)="sendBookingID(passanger.Booking_Id)" class="btn btn-info">{{'check-hotel.label-more-info' | translate}}</button>
    
           <!-- <div class="form-row">
               <div class="form-group col-md-2">

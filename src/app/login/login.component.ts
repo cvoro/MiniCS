@@ -19,6 +19,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.changeDirection(this.translate.currentLang);
+
+    this.translate.onLangChange.subscribe(lang => {
+      this.changeDirection(lang.lang);
+    });
   }
 
   login(data) {
@@ -30,10 +35,15 @@ export class LoginComponent implements OnInit {
       this.toastr.success('Logged in!');
     }, 1500);
   }
-  
-  addStyle() {
-    document.getElementById("input-username").style.direction = "ltr"
-    document.getElementById("input-password").style.direction = "ltr"
+
+  changeDirection(lang) {
+    if (lang === 'en_UK') {
+      document.getElementById('input-username').style.direction = 'ltr';
+      document.getElementById('input-password').style.direction = 'ltr';
+    } else {
+      document.getElementById('input-username').style.direction = 'rtl';
+      document.getElementById('input-password').style.direction = 'rtl';
+    }
   }
 
 }
