@@ -3,7 +3,8 @@
         "label-please-sing-in": "Please sign in",
         "label-username": "Username",
         "label-password": "Password",
-        "label-submit": "Submit"
+        "label-submit": "Submit",
+        "label-loading": "Loading"
     },
     "admin-panel":{
         "label-username": "Username",
