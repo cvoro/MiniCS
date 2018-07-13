@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { hotels, pax } from './leisureMock';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { LeisureConsultantsService } from './leisure-consultants.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-leisure-consultants',
@@ -14,20 +16,57 @@ leisureConsultantsList = pax;
 consultant = {
   username: '',
   password: '',
-  firstName: '',
-  lastName: ''
+  first_Name: '',
+  last_Name: ''
+};
+
+popUpMessages = {
+  consultantNotLoaded: '',
+  consultantUpdated: '',
+  consultantNotUpdated: '',
+  consultantDeleted: '',
+  consultantNotDeleted: '',
+  consultantAdded: '',
+  consultantNotAdded: ''
 };
 
 addedConslutants = [];
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService,
+              private leisureService: LeisureConsultantsService,
+              private toastr: ToastrService) {
+                this.leisureService.getAllLeisureConsultants().subscribe(
+                  done => this.addedConslutants = done,
+                  err => this.toastr.warning(this.popUpMessages.consultantNotLoaded)
+                );
+                this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                  this.getTranslations();
+                });
+                this.getTranslations();
+  }
 
   public settings = {
+    add: {
+      addButtonContent: '<i class="fas fa-plus"></i>',
+      createButtonContent: '<i class="fas fa-check"></i>',
+      cancelButtonContent: '<i class="fas fa-ban"></i>',
+      confirmCreate: true
+    },
+    edit: {
+      editButtonContent: '<i class="fas fa-pencil-alt"></i>',
+      saveButtonContent: '<i class="fas fa-check"></i>',
+      cancelButtonContent: '<i class="fas fa-times"></i>',
+      confirmSave: true
+    },
+    delete: {
+      deleteButtonContent: '<i class="fas fa-ban" ></i>',
+      confirmDelete: true
+    },
     columns: {
-      firstName: {
+      first_Name: {
          title: 'First name'
       },
-      lastName: {
+      last_Name: {
         title: 'Last name'
       },
       username: {
@@ -58,9 +97,74 @@ addedConslutants = [];
     }
   }
 
+  getTranslations() {
+    this.translate.get('leisure-consultants-pop-up.label-consultants-not-loaded').subscribe(
+      done => this.popUpMessages.consultantNotLoaded = done
+    );
+    this.translate.get('leisure-consultants-pop-up.label-consultant-added').subscribe(
+      done => this.popUpMessages.consultantAdded = done
+    );
+    this.translate.get('leisure-consultants-pop-up.label-consultant-not-added').subscribe(
+      done => this.popUpMessages.consultantNotAdded = done
+    );
+    this.translate.get('leisure-consultants-pop-up.label-consultant-deleted').subscribe(
+      done => this.popUpMessages.consultantDeleted = done
+    );
+    this.translate.get('leisure-consultants-pop-up.label-consultant-not-deleted').subscribe(
+      done => this.popUpMessages.consultantNotDeleted = done
+    );
+    this.translate.get('leisure-consultants-pop-up.label-consultant-updated').subscribe(
+      done => this.popUpMessages.consultantUpdated = done
+    );
+    this.translate.get('leisure-consultants-pop-up.label-consultant-not-updated').subscribe(
+      done => this.popUpMessages.consultantNotUpdated = done
+    );
+  }
+
   addConsultant(consultant) {
     this.addedConslutants.push(consultant);
     console.log(this.addedConslutants);
   }
+
+  updateRecord(event) {
+    this.leisureService.updateLeisureConsultant(event.newData).subscribe(
+      done => {
+        this.toastr.success(this.popUpMessages.consultantUpdated);
+        event.confirm.resolve(event.source.newData);
+      },
+      err => {
+        this.toastr.error(this.popUpMessages.consultantNotUpdated);
+        event.confirm.resolve(event.source.data);
+      }
+    );
+  }
+
+  deleteRecord(event) {
+    console.log(event);
+    console.log('delete');
+    this.leisureService.deleteLeisureConsultant(event.data.id).subscribe(
+      done => {
+        this.toastr.success(this.popUpMessages.consultantDeleted);
+        event.confirm.resolve(event.source.newData);
+      },
+      err => {
+        this.toastr.error(this.popUpMessages.consultantNotDeleted);
+      }
+    );
+  }
+
+  createRecord(event) {
+    console.log(event.newData);
+    this.leisureService.addNewLeisureConsultant(event.newData).subscribe(
+      done => {
+        this.toastr.success(this.popUpMessages.consultantAdded);
+        event.confirm.resolve(event.source.newData);
+      },
+      err => {
+        this.toastr.error(this.popUpMessages.consultantNotAdded);
+      }
+    );
+  }
+
 
 }

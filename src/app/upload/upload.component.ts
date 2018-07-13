@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { ToastrService } from 'ngx-toastr';
+import { UploadService } from './upload.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,88 +11,104 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  data;
-  wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
-  fileName: string = 'SheetJS.xlsx';
-  data1: {}[];
 
-  constructor(private toastr: ToastrService) { }
+  arrivalListFile: FileList;
+  travellistFile: FileList;
+
+  popUpMessages = {
+    fileUploaded: '',
+    fileNotUploaded: '',
+    dateNotValid: '',
+    uploadArrivalList: ''
+  };
+
+  constructor(private toastr: ToastrService,
+              private uploadService: UploadService,
+              private translate: TranslateService) {
+                this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                  this.getTranslations();
+                });
+
+                this.getTranslations();
+               }
 
   ngOnInit() {
   }
 
-  onFileChange(evt: any) {
-    /* wire up file reader */
-    const target: DataTransfer = <DataTransfer>(evt.target);
-    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
-    const reader: FileReader = new FileReader();
-    reader.onload = (e: any) => {
-      /* read workbook */
-      const bstr: string = e.target.result;
-      const wb: XLSX.WorkBook = XLSX.read(bstr, {type: 'binary'});
-
-      /* grab first sheet */
-      const wsname: string = wb.SheetNames[0];
-      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
-      /* save data */
-      // , {header: 1}
-      // , {header: 1, blankrows: true, range: 120, raw: true}
-      this.data = XLSX.utils.sheet_to_json(ws, {header: 1, raw: true});
-    //  this.data = XLSX.utils.sheet_to_html(ws, {id: true, editable: 'true'})
-      console.log(this.data);
-      console.log(typeof(this.data));
-      // this.createJsonArray(this.data)
-    };
-    reader.readAsBinaryString(target.files[0]);
+  getTranslations() {
+    this.translate.get('file-upload-pop-up.label-file-uploaded').subscribe(
+      done => this.popUpMessages.fileUploaded = done
+    );
+    this.translate.get('file-upload-pop-up.label-file-not-uploaded').subscribe(
+      done => this.popUpMessages.fileNotUploaded = done
+    );
+    this.translate.get('file-upload-pop-up.label-upload-arrival-list').subscribe(
+      done => this.popUpMessages.uploadArrivalList = done
+    );
+    this.translate.get('file-upload-pop-up.label-date-not-valid').subscribe(
+      done => this.popUpMessages.dateNotValid = done
+    );
   }
 
-
-  // createJsonArray(data) {
-  //   let len = data[0].length;
-  //   for (let i = 0; i < data.length; i++) {
-  //     if (len < data[i].length) {
-  //       len = data[i].length;
-  //     }
-  //   }
-  //   for (let i = 0; i < data.length; i++) {
-  //          for (let j = data[i].length; j < len; j++) {
-  //               data[i][j] = '';
-  //     }
-  //   }
-  //   console.log(len)
-  // }
-
-  // sendID(params) {
-  //   console.log(params)
-  // }
-
-  fileUploaded() {
-    setTimeout(() => {
-        this.toastr.success('File Uploaded!');
-    }, 1000);
+  arrivalListFileChange(event) {
+    this.arrivalListFile = event.target.files;
   }
 
-
-  onFileChange1(evt: any) {
-    /* wire up file reader */
-    const target: DataTransfer = <DataTransfer>(evt.target);
-    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
-    const reader: FileReader = new FileReader();
-    reader.onload = (e: any) => {
-      /* read workbook */
-      const bstr: string = e.target.result;
-      const wb: XLSX.WorkBook = XLSX.read(bstr, {type: 'binary'});
-
-      /* grab first sheet */
-      const wsname: string = wb.SheetNames[0];
-      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
-      /* save data */
-      this.data1 = XLSX.utils.sheet_to_json(ws, {header: 1});
-      console.log(this.data1);
-      console.log(typeof(this.data1));
-    };
-    reader.readAsBinaryString(target.files[0]);
+  travelListFileChange(event) {
+    this.travellistFile = event.target.files;
   }
+
+  uploadArrivalListFile() {
+    if (this.arrivalListFile.length > 0) {
+      let file: File = this.arrivalListFile[0];
+      let formData: FormData = new FormData();
+      formData.append('file', file, file.name);
+      this.uploadService.uploadArrivalFile(formData).subscribe(
+        data => {
+          console.log('success'),
+          this.arrivalListFile = null;
+          document.getElementById('upload-arrival-list')['value'] = '';
+          this.toastr.success( this.popUpMessages.fileUploaded);
+        },
+        error => {
+          console.log(error);
+          if (error.status === 412) {
+            // WHEN date and time in excel is not valid
+            this.toastr.error( this.popUpMessages.dateNotValid);
+          } else {
+            // OTHER errors
+            this.toastr.error( this.popUpMessages.fileNotUploaded);
+          }
+        });
+    }
+  }
+
+  uploadTransferListFile() {
+    if (this.travellistFile.length > 0) {
+      let file: File = this.travellistFile[0];
+      let formData: FormData = new FormData();
+      formData.append('file', file, file.name);
+      this.uploadService.uploadTransferFile(formData).subscribe(
+        data => {
+          console.log('success'),
+          this.travellistFile = null;
+          document.getElementById('upload-transfer-list')['value'] = '';
+          this.toastr.success( this.popUpMessages.fileUploaded);
+        },
+        error => {
+          console.log(error);
+          if (error.status === 412) {
+            // WHEN date and time in excel is not valid
+            this.toastr.error( this.popUpMessages.dateNotValid);
+          } else if (error.status === 409) {
+            // WHEN transfer list is not uploaded first
+            this.toastr.error( this.popUpMessages.uploadArrivalList);
+          } else {
+            // OTHER errors
+            this.toastr.error( this.popUpMessages.fileNotUploaded);
+          }
+        });
+    }
+  }
+
 }

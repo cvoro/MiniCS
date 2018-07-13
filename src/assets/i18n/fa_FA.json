@@ -75,6 +75,59 @@
         "label-car-name-departure": "خروج از ماشین",
         "label-car-transfer-type-departure": "خروج از نوع خودرو",
         "label-airline-departure": "خروج هواپیمایی",
-        "label-flight-number-departure": "پرواز شماره خروج"
+        "label-flight-number-departure": "پرواز شماره خروج",
+        "label-pickup-time": "زمان را انتخاب کنید",
+        "label-remarks-field": "قسمت نظرات"
+    },
+    "nab-bar-pop-up": {
+        "label-logged-out": "خارج شده است"
+    },
+    "travel-list-pup-up": {
+        "label-travels-not-loaded": "سفر بارگیری نمی شود!",
+        "label-row-updated":"ردیف به روز شد",
+        "label-row-not-updated": "ردیف به روز نشده است",
+        "label-row-deleted": "ردیف حذف شد",
+        "label-row-not-deleted": "ردیف حذف نشده است"
+    },
+    "file-upload-pop-up": {
+        "label-file-uploaded": "فایل آپلود شد",
+        "label-file-not-uploaded": "فایل آپلود نشده است",
+        "label-upload-arrival-list": "اولین بار لیست ورودی آپلود",
+        "label-date-not-valid": "لطفا تاریخ زمان را در اکسل برای اولین بار پر کنید"
+    },
+    "passenger-type-pop-up": {
+        "label-passenger-not-loaded": "نوع مسافر بارگیری نمی شود!",
+        "label-new-passenger-added": "مسافر جدید اضافه شده است",
+        "label-new-passenger-not-added": "مسافر جدید اضافه نشده است",
+        "label-passenger-type-deleted": "نوع مسافر حذف شد!",
+        "label-passenger-type-not-deleted": "نوع مسافر پاک نشده است!",
+        "label-passenger-type-updated": "نوع مسافر به روز شد",
+        "label-passenger-type-not-updated": "نوع مسافر به روز نشده است"
+    },
+    "login-pop-up": {
+        "label-logged-in": "وارد شده!"
+    },
+    "leisure-consultants-pop-up": {
+        "label-consultants-not-loaded": "لیست مشاوران بارگیری نشده است!",
+        "label-consultant-updated": "مشاوران به روز شده!",
+        "label-consultant-not-updated": "مشاوران به روز نشده اند",
+        "label-consultant-deleted": "مشاور حذف شد",
+        "label-consultant-not-deleted": "مشاور حذف نشده است",
+        "label-consultant-added": "مشاور اضافه شده است",
+        "label-consultant-not-added": "مشاور اضافه نشده است!"
+    },
+    "hotels-pop-up": {
+        "label-consultants-not-loaded": "لیست مشاوران بارگیری نشده است!",
+        "label-hotels-not-loaded": "هتل ها بارگیری نمی شوند!",
+        "label-consultant-updated": "مشاوره اوقات فراغت به روز شد!",
+        "label-consultant-not-updated": "مشاور اوقات فراغت به روز نشده!"
+    },
+    "find-passenger-pop-up": {
+         "label-passenger-updated": "اطلاعات مسافر به روز شده!",
+         "label-passenger-not-updated": "اطلاعات مسافر به روز نشده است!",
+         "label-passenger-not-found": "مسافر با شناسه یافت نشد!"  
+    },
+    "check-hotel-pop-up": {
+        "label-hotel-hot-found": "هتل یافت نشد"
     }
 }

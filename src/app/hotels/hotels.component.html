@@ -4,42 +4,24 @@
             <h2>Find hotel by name:</h2>
             <div class="form-group row">
                <div class="col-8">
-                 <input class="form-control"  type="text" [(ngModel)]="searchText.Hotel" (keypress)="check()" value="How do I shoot web" id="example-search-input">
+                 <input class="form-control"  type="text" [(ngModel)]="searchText.hotel_Name" value="How do I shoot web" id="example-search-input">
                </div>
                
              </div>
     <h2>Hotels List:</h2>
     <div class="form-group row" *ngFor="let hotel of hotelsList  | filterBy: searchText">
       <div class="col-6">
-        {{hotel.Hotel}}
-        
+        {{hotel.hotel_Name}}
       </div>
       
       <!-- <label for="example-text-input" class="col-2 col-form-label">{{ 'admin-panel.label-username' | translate }}</label> -->
       <div class="col-6">
-        <select class="form-control" [(ngModel)]="hotel.LC" name="hotel-LC">
-          <option *ngFor="let lc of leisureConsultantsList">{{lc}}</option>
+        <select class="form-control" (ngModelChange)="consultantChanged($event, hotel)" [ngModel]="hotel.user_Id" name="hotel-LC">
+          <option  *ngFor="let lc of leisureConsultantsList" value="{{lc.id}}">{{lc.first_Name}} {{lc.last_Name}}</option>
         </select>
-        <!-- <input class="form-control" type="text" value="{{ 'admin-panel.label-username' | translate }}" id="example-text-input"> -->
       </div>
     </div>
     <li *ngIf="(hotelsList | filterBy: searchText).length === 0">No matching elements</li>
-
     </div>
-    <!-- <div class=" col-6">
- <h2>Find hotel by name:</h2>
- <div class="form-group row">
-    <div class="col-8">
-      <input class="form-control" dir="rtl" type="text" [(ngModel)]="searchText.Hotel" (keypress)="check()" value="How do I shoot web" id="example-search-input">
     </div>
-
-  </div>
-    </div> -->
-    </div>
-    
-
-    <!-- <div class="form-group row">
-      <div class="col-7"></div>
-      <button class="btn btn-success col-1">{{ 'admin-panel.label-add' | translate }}</button>
-    </div> -->
     </div>

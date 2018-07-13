@@ -9,3 +9,13 @@
 h2{
     padding-bottom: 30px;
 }
+
+.fa-plus{
+    color: blue;
+    text-align: center;
+    padding-left: 30%;
+  }
+
+  :host /deep/ .ng2-smart-actions-title-add{
+    text-align: center;
+  }

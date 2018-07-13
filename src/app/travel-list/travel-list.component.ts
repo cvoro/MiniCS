@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {settings, data} from './excelMock';
+import { settings, data } from './excelMock';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { ButtonComponent } from './button/button.component';
+import { TravelListService } from './travel-list.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-travel-list',
@@ -10,140 +13,37 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TravelListComponent implements OnInit {
   // settings = settings;
-  data = data;
-  
-  constructor(private _sanitizer: DomSanitizer, private translate: TranslateService) { }
+  data;
 
-  public settings = {
-    // add: {
-    //   addButtonContent: '<i class="nb-plus"></i>',
-    //   createButtonContent: '<i class="nb-checkmark"></i>',
-    //   cancelButtonContent: '<i class="nb-close"></i>',
-    // },
-    // edit: {
-    //   editButtonContent: '<i class="nb-edit"></i>',
-    //   saveButtonContent: '<i class="nb-checkmark"></i>',
-    //   cancelButtonContent: '<i class="nb-close"></i>',
-    // },
-    // delete: {
-    //   deleteButtonContent: '<i class="nb-trash"></i>',
-    //   confirmDelete: true,
-    // },
-         columns: {
-      ID: {
-         title: 'ID'
-      },
-      Booking_Id: {
-         title: 'Booking ID'
-       },
-      Booking_Date: {
-         title: 'Booking Date'
-         },
-      Hotel_Name: {
-         title: 'Hotel Name'
-       },
-      Pax_Name: {
-           title: 'Pax Name'
-      },
-      Number_Of_Pax: {
-           title: 'No. Of Pax'
-      },
-      Supplier_reference: {
-           title: 'Supplier reference'
-      },
-      Room_type: {
-           title: 'Room type'
-      },
-      Number_of_rooms: {
-           title: 'Number of rooms'
-      },
-      Leisure_consultants: {
-           title: 'Leisure Consultants'
-      },
-      Contact_number: {
-           title: 'Contact number'
-      },
-      Room_number: {
-           title: 'Room number'
-      },
-      Passenger_type: {
-           title: 'Passenger type'
-    },
-    Check_by_REP: {
-      title: 'Check by REP',
-      type: 'html',
-      editor: {
-        type: 'checkbox'
-      },
-      valuePrepareFunction: (value) => { return this._sanitizer.bypassSecurityTrustHtml(this.input); },
-      filter: false
-      },
-      Check_by_LC: {
-      title: 'Check by LC',
-      type: 'html',
-      editor: {
-        type: 'checkbox'
-      },
-      valuePrepareFunction: (value) => { return this._sanitizer.bypassSecurityTrustHtml(this.input); },
-      filter: false
-      },
-      // Check_by_REP: {
-      //      title: 'Check by REP'
-      // },
-      // Check_by_LC: {
-      //      title: 'Check by LC'
-      // },
-      Leaving_From: {
-           title: 'Leaving From'
-      },
-      Supplier_Arrival: {
-           title: 'Supplier'
-      },
-      DateTime_Arrival: {
-           title: 'Date & Time'
-      },
-      Terminal_Arrival: {
-           title: 'Terminal'
-      },
-      Car_Name_Arrival: {
-           title: 'Car Name'
-      },
-      Car_Transfer_Type_Arrival: {
-           title: 'Car Transfer Type'
-      },
-      Airline_Arrival: {
-           title: 'Airline'
-      },
-      FlightNo_Arrival: {
-           title: 'Flight No.'
-      },
-      Going_to: {
-           title: 'Going To'
-      },
-      Supplier_Departure: {
-           title: 'Supplier'
-      },
-      DateTime_Departure: {
-           title: 'Date & Time'
-      },
-      Terminal_Departure: {
-           title: 'Terminal'
-      },
-      Car_Name_Departure: {
-           title: 'Car Name'
-      },
-      Car_Transfer_Type_Departure: {
-           title: 'Car Transfer Type'
-      },
-      Airline_Departure: {
-           title: 'Airline'
-      },
-      FlightNo_Departure: {
-           title: 'Flight No.'
-      }
-        }
-    };
-  public input: string = '<input type="checkbox">';
+  popUpMessages = {
+    rowUpdated: '',
+    rowNotUpdated: '',
+    rowDeleted: '',
+    rowNotDelted: '',
+    travelsNotLoaded: ''
+  };
+
+  constructor(private _sanitizer: DomSanitizer,
+              private translate: TranslateService,
+              private travelService: TravelListService,
+              private toastr: ToastrService) {
+                this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                    this.getTranslations();
+                });
+                this.getTranslations();
+
+                this.travelService.getAllTravelInfo().subscribe(
+                  done => {
+                    this.data = done;
+                  },
+                  err => {
+                    this.toastr.error(this.popUpMessages.travelsNotLoaded);
+                  }
+                )
+               }
+
+  public settings = settings;
+  // public input: string = '<input type="checkbox">';
 
   ngOnInit() {
     this.changeDirection(this.translate.currentLang);
@@ -153,6 +53,25 @@ export class TravelListComponent implements OnInit {
     });
   }
 
+  getTranslations() {
+    this.translate.get('travel-list-pup-up.label-row-deleted').subscribe(
+      done => this.popUpMessages.rowDeleted = done
+    );
+    this.translate.get('travel-list-pup-up.label-row-not-deleted').subscribe(
+      done => this.popUpMessages.rowNotDelted = done
+    );
+    this.translate.get('travel-list-pup-up.label-row-updated').subscribe(
+      done => this.popUpMessages.rowUpdated = done
+    );
+    this.translate.get('travel-list-pup-up.label-row-updated').subscribe(
+      done => this.popUpMessages.rowNotUpdated = done
+    );
+    this.translate.get('travel-list-pup-up.label-travels-not-loaded').subscribe(
+      done => this.popUpMessages.travelsNotLoaded = done
+    );
+  }
+
+  
   changeDirection(lang) {
     let items = document.getElementsByTagName('th');
     for (let i = 0; i < items.length; i++) {
@@ -162,6 +81,37 @@ export class TravelListComponent implements OnInit {
         items[i].style.direction = 'rtl';
       }
     }
+  }
+
+  // TABLE ACTIONS
+  deleteRecord(event) {
+    console.log(event);
+    this.travelService.deleteTravelInfo(event.data).subscribe(
+      done => {
+        event.confirm.resolve(event.source.data);
+        this.toastr.success(this.popUpMessages.rowDeleted);
+      },
+      err => {
+        this.toastr.success(this.popUpMessages.rowNotDelted);
+      }
+    );
+  }
+
+  updateRecord(event) {
+    console.log(event);
+    this.travelService.updateTravelInfo(event.newData).subscribe(
+      done => {
+        event.confirm.resolve(event.newData);
+        this.toastr.success(this.popUpMessages.rowUpdated);
+      },
+      err => {
+        this.toastr.success(this.popUpMessages.rowNotUpdated);
+      }
+    );
+  }
+
+  rowSelected(event) {
+    console.log(event);
   }
 
 }

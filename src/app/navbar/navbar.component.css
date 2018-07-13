@@ -6,3 +6,9 @@
   .navbar{
     background-repeat: repeat-x;
   }
+
+  .navbar-brand img{
+    height: 60px;
+    width: 150px;
+    margin: -10px;
+  }

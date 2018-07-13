@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,19 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
   };
-  constructor(private translate: TranslateService, private router: Router, private toastr: ToastrService) {
-    translate.setDefaultLang('fa_FA');
+
+  popUpMessages = {
+    loggedIn: ''
+  };
+
+  constructor(private translate: TranslateService,
+      private router: Router,
+      private toastr: ToastrService,
+      private loginService: LoginService) {
+        this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+          this.getTranslations();
+        });
+        this.getTranslations();
   }
 
   ngOnInit() {
@@ -26,14 +38,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  getTranslations() {
+    this.translate.get('login-pop-up.label-logged-in"').subscribe(
+      done => this.popUpMessages.loggedIn = done
+    );
+  }
+
   login(data) {
     this.spinnerLoading = true;
-    localStorage.setItem('loggedInAs', data.username);
-    setTimeout(() => {
-      this.spinnerLoading = false;
-      this.router.navigate(['/wellcome']);
-      this.toastr.success('Logged in!');
-    }, 1500);
+    this.loginService.login(data).subscribe(res => {
+      console.log(res);
+      localStorage.setItem('token', res['token']);
+      localStorage.setItem('role', res['role'][0]['authority']);
+        this.spinnerLoading = false;
+        this.router.navigate(['/wellcome']);
+        this.toastr.success(this.popUpMessages.loggedIn);
+      });
   }
 
   changeDirection(lang) {

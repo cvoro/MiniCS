@@ -1,57 +1,7 @@
-
-<!-- <div class="container">
-<h2>Add Leisure Consultant:</h2>
-<div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">{{ 'admin-panel.label-username' | translate }}</label>
-  <div class="col-6">
-    <input class="form-control" [(ngModel)]="consultant.username" type="text" placeholder="{{ 'admin-panel.label-username' | translate }}" id="example-text-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-search-input" class="col-2 col-form-label">{{ 'admin-panel.label-password' | translate }}</label>
-  <div class="col-6">
-    <input class="form-control" [(ngModel)]="consultant.password" type="password" placeholder="{{ 'admin-panel.label-password' | translate }}" id="example-search-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-email-input" class="col-2 col-form-label">{{ 'admin-panel.label-first-name' | translate }}</label>
-  <div class="col-6">
-    <input class="form-control" [(ngModel)]="consultant.firstName" type="text" placeholder="{{ 'admin-panel.label-first-name' | translate }}" id="example-email-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-url-input" class="col-2 col-form-label">{{ 'admin-panel.label-last-name' | translate }}</label>
-  <div class="col-6">
-    <input class="form-control" [(ngModel)]="consultant.lastName" type="text" placeholder="{{ 'admin-panel.label-last-name' | translate }}" id="example-url-input">
-  </div>
-</div>
-<div class="form-group row">
-  <div class="col-7"></div>
-  <button class="btn btn-success col-1" type="submit" (click)="addConsultant(consultant)"> {{ 'admin-panel.label-add' | translate }}</button>
-</div>
-</div> -->
-
 <div class="container">
     <h2>Add Leisure Consultant:</h2>
-<!-- <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First name</th>
-        <th scope="col">Last name</th>
-        <th scope="col">Username</th>
-        <th scope="col">Password</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let consultant of addedConslutants; let i = index">
-        <th scope="row">{{i + 1 }}</th>
-        <td>{{consultant.firstName}}</td>
-        <td>{{consultant.lastName}}</td>
-        <td>{{consultant.userame}}</td>
-        <td>{{consultant.password}}</td>
-      </tr>
-    </tbody>
-  </table> -->
-  <ng2-smart-table  [settings]="settings" [source]="addedConslutants"></ng2-smart-table>
+  <ng2-smart-table  [settings]="settings" [source]="addedConslutants"
+   (deleteConfirm)="deleteRecord($event)"
+   (editConfirm)="updateRecord($event)"
+   (createConfirm)="createRecord($event)"></ng2-smart-table>
 </div>

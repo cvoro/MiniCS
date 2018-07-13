@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from '../travel-list/excelMock';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { CheckHotelService } from './check-hotel.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-check-hotel',
@@ -12,13 +14,31 @@ export class CheckHotelComponent implements OnInit {
   data = data;
   loggedUser;
   passanger = {};
-  constructor(private router: Router, private translate: TranslateService) {
-    this.loggedUser = localStorage.getItem('loggedInAs');
-    for (let i = 0; i < this.data.length; i++) {
-      if (this.data[i].Pax_Name === this.loggedUser) {
-        this.passanger = this.data[i];
+  popUpMessages = {
+    hotelNotFound: ''
+  }
+  constructor(private router: Router,
+              private translate: TranslateService,
+              private checkHotelService: CheckHotelService,
+              private toastr: ToastrService) {
+    // this.loggedUser = localStorage.getItem('loggedInAs');
+    // for (let i = 0; i < this.data.length; i++) {
+    //   if (this.data[i].Pax_Name === this.loggedUser) {
+    //     this.passanger = this.data[i];
+    //   }
+    // }
+    this.checkHotelService.checkHotel().subscribe(
+      done => {
+        console.log(done);
+      },
+      err => {
+        this.toastr.warning(this.popUpMessages.hotelNotFound);
       }
-    }
+    );
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.getTranslations();
+    });
+    this.getTranslations();
   }
 
   ngOnInit() {
@@ -27,6 +47,12 @@ export class CheckHotelComponent implements OnInit {
     this.translate.onLangChange.subscribe(lang => {
       this.changeDirection(lang.lang);
     });
+  }
+
+  getTranslations() {
+    this.translate.get('check-hotel-pop-up.label-hotel-hot-found').subscribe(
+      done => this.popUpMessages.hotelNotFound = done
+    );
   }
 
   changeDirection(lang) {
@@ -39,6 +65,7 @@ export class CheckHotelComponent implements OnInit {
       }
     }
   }
+
   sendBookingID(bookignID) {
     localStorage.setItem('bookingID', bookignID);
     this.router.navigate(['/find-passenger']);

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -8,16 +8,34 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   admin;
   loggedIn;
   loggedREP;
 
-  constructor(private translate: TranslateService, private router: Router, private toastr: ToastrService) {
-    translate.setDefaultLang('fa_FA');
-    translate.use('fa_FA');
+  popUpMessages = {
+    loggedOut: ''
+  };
+
+  constructor(private translate: TranslateService,
+              private router: Router,
+              private toastr: ToastrService) {
+
+                this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                  this.getTranslations();
+                });
+                this.getTranslations();
+
+    
+    if (localStorage.getItem('lang') !== null) {
+      translate.use(localStorage.getItem('lang'));
+      // translate.setDefaultLang(localStorage.getItem('lang'));
+    } else {
+      // translate.setDefaultLang('fa_FA');
+      translate.use('fa_FA');
+    }
     setInterval(() => {
-      if (localStorage.getItem('loggedInAs') === 'admin'){
+      if (localStorage.getItem('role') === 'ADMIN') {
         this.admin = true;
         this.loggedIn = true;
       } else {
@@ -25,11 +43,11 @@ export class NavbarComponent implements OnInit {
         this.loggedIn = false;
       }
 
-      if (localStorage.getItem('loggedInAs')) {
+      if (localStorage.getItem('role')) {
         this.loggedIn = true;
       }
 
-      if (localStorage.getItem('loggedInAs') != 'rep') {
+      if (localStorage.getItem('role') !== 'rep') {
         this.loggedREP = false;
       } else {
         this.loggedREP = true;
@@ -41,11 +59,24 @@ export class NavbarComponent implements OnInit {
 
   changeLang(lang) {
     this.translate.use(lang);
+    localStorage.setItem('lang', lang);
   }
 
   logout() {
-    localStorage.removeItem('loggedInAs');
+    localStorage.removeItem('role');
+    localStorage.removeItem('token');
     this.router.navigate(['/login']);
-    this.toastr.error('Logged out!');
+    this.toastr.error(this.popUpMessages.loggedOut);
+  }
+
+  getTranslations() {
+    this.translate.get('nab-bar-pop-up.label-logged-out').subscribe(
+      done => this.popUpMessages.loggedOut = done
+    );
+  }
+
+  ngOnDestroy() {
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('role');
   }
 }

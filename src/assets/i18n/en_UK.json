@@ -75,6 +75,59 @@
         "label-car-name-departure": "Car name departure",
         "label-car-transfer-type-departure": "Car transfer type departure",
         "label-airline-departure": "Airline departure",
-        "label-flight-number-departure": "Flight No. departure"
+        "label-flight-number-departure": "Flight No. departure",
+        "label-pickup-time": "Pick up time",
+        "label-remarks-field": "Remarks field"
+    },
+    "nab-bar-pop-up": {
+        "label-logged-out": "Logged out!"
+    },
+    "travel-list-pup-up": {
+        "label-travels-not-loaded": "Travels not loaded!",
+        "label-row-updated":"Row updated",
+        "label-row-not-updated": "Row not updated",
+        "label-row-deleted": "Row deleted",
+        "label-row-not-deleted": "Row not deleted"
+    },
+    "file-upload-pop-up": {
+        "label-file-uploaded": "File uploaded!",
+        "label-file-not-uploaded": "File not uploaded!",
+        "label-upload-arrival-list": "First upload Arrival list!",
+        "label-date-not-valid": "Please fill date time in excel first!"
+    },
+    "passenger-type-pop-up": {
+        "label-passenger-not-loaded": "Passenger types not loaded!",
+        "label-new-passenger-added": "New passenger added",
+        "label-new-passenger-not-added": "New passenger not added",
+        "label-passenger-type-deleted": "Passenger type deleted!",
+        "label-passenger-type-not-deleted": "Passenger type not deleted!",
+        "label-passenger-type-updated": "Passenger type updated",
+        "label-passenger-type-not-updated": "Passenger type not updated"
+    },
+    "login-pop-up": {
+        "label-logged-in": "Logged in!"
+    },
+    "leisure-consultants-pop-up": {
+        "label-consultants-not-loaded": "Consultants list not loaded!",
+        "label-consultant-updated": "Consultants updated!",
+        "label-consultant-not-updated": "Consultants not updated!",
+        "label-consultant-deleted": "Consultant deleted!",
+        "label-consultant-not-deleted": "Consultant not deleted!",
+        "label-consultant-added": "Consultant added!",
+        "label-consultant-not-added": "Consultant not added!"
+    },
+    "hotels-pop-up": {
+        "label-consultants-not-loaded": "Consultants list not loaded!",
+        "label-hotels-not-loaded": "Hotels not loaded!",
+        "label-consultant-updated": "Leisure consultant updated!",
+        "label-consultant-not-updated": "Leisure consultant not updated!"
+    },
+    "find-passenger-pop-up": {
+         "label-passenger-updated": "Passenger data updated!",
+         "label-passenger-not-updated": "Passenger data not updated!",
+         "label-passenger-not-found": "Passenger with that ID not found!"  
+    },
+    "check-hotel-pop-up": {
+        "label-hotel-hot-found": "Hotel not found!"
     }
 }

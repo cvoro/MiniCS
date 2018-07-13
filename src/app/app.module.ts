@@ -18,9 +18,8 @@ import { SafeHtmlPipe } from './safeHTML.pipe';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { HotelsComponent } from './hotels/hotels.component';
-import { PassangersComponent } from './passangers/passangers.component';
+
 import { WelcomeComponent } from './welcome/welcome.component';
-import { FindPassangerComponent } from './find-passanger/find-passanger.component';
 import { FilterPipe } from './filter.pipe';
 
 import { FilterPipeModule } from 'ngx-filter-pipe';
@@ -29,6 +28,14 @@ import { CheckHotelComponent } from './check-hotel/check-hotel.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { UploadService } from './upload/upload.service';
+import { LoginService } from './login/login.service';
+import { PassengerTypeService } from './passenger-type/passenger-type.service';
+import { PassangersComponent } from './passenger-type/passengers-type.component';
+import { LeisureConsultantsService } from './leisure-consultants/leisure-consultants.service';
+import { HotelsService } from './hotels/hotels.service';
+import { ButtonComponent } from './travel-list/button/button.component';
+import { FindPassangerComponent } from './find-paseanger/find-passenger.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     WelcomeComponent,
     FindPassangerComponent,
     FilterPipe,
-    CheckHotelComponent
+    CheckHotelComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +76,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     FilterPipeModule
   ],
-  providers: [],
+  entryComponents: [ButtonComponent],
+  providers: [UploadService, LoginService, PassengerTypeService, LeisureConsultantsService, HotelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
