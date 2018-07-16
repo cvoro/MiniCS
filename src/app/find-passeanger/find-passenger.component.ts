@@ -14,7 +14,7 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   passangersList;
   message = '';
 
-  passanger: PassengerType;
+  passanger = passengerType;
 
   popUpMessages = {
     passengerUpdated: '',
@@ -28,9 +28,6 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   constructor(private toastr: ToastrService,
               private translate: TranslateService,
               private findPassengerService: FindPassengerService) {
-    this.passanger['lC_First_Name'] = '';
-    this.passanger['lC_Last_Name'] = '';
-
     if (localStorage.getItem('bookingID') !== 'undefined') {
       this.findPassanger(localStorage.getItem('bookingID'));
     }

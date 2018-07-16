@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HotelsComponent implements OnInit {
   hotelsList = [];
-  leisureConsultantsList = pax;
+  leisureConsultantsList;
   searchText: any = { hotel_Name: '' };
 
   popUpMessages = {
@@ -31,9 +31,10 @@ export class HotelsComponent implements OnInit {
                     console.log(done),
                     this.hotelsList.sort(this.dynamicSort('hotel_Name'));
                     this.hotelsService.getAllConsultants().subscribe(
-                      consultants => {this.leisureConsultantsList = consultants,
+                      consultants => {
+                              this.leisureConsultantsList = consultants,
                               console.log(consultants);
-                              },
+                            },
                       err => this.toastr.warning(this.popUpMessages.consultantListNotLoaded)
                     );
                 },
