@@ -66,6 +66,8 @@ export class PassengerType {
     terminal_Departure: null;
     hotel_Name: string;
     hotel_Id: null;
+    pickup_Time: Date;
+    remarks_Field: string;
     lC_First_Name: string;
     lC_Last_Name: string;
 }
