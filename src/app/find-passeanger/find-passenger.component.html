@@ -23,49 +23,53 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputZip">{{'find-passenger.label-leisure-consultant' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.leisure_consultants" name="passanger.Leisure_consultants" class="form-control" id="inputZip" >
+                <input type="text" readonly [(ngModel)]="passanger.lC_First_Name + ' ' + passanger.lC_Last_Name" name="passanger.Leisure_consultants"  class="form-control" id="inputZip" >
               </div>
             <div class="form-group col-md-4">
               <label for="inputCity">{{'find-passenger.label-contact-number' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.contact_number" name="passanger.Contact_number" class="form-control" id="Paxname" >
+              <input type="text" [(ngModel)]="passanger.contact_Number" name="passanger.Contact_number" class="form-control" id="Paxname" >
             </div>
     
             <div class="form-group col-md-4">
                 <label for="inputState">{{'find-passenger.label-room-number' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.room_number" name="passanger.Room_number" class="form-control" id="Pax name">
+                <input type="text" [(ngModel)]="passanger.room_Number" name="passanger.Room_number" class="form-control" id="Pax name">
           </div>
           </div>
           <div class="form-row">
         <div class="form-group col-md-4">
               <label for="inputZip">{{'find-passenger.label-passenger-type' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.passenger_type" name="passanger.Passenger_type" class="form-control" id="inputZip" >
+              <!-- <input type="text" [(ngModel)]="passanger.passenger_type" name="passanger.Passenger_type" class="form-control" id="inputZip" > -->
+              <select class="form-control" name="passanger.Passenger_type" [(ngModel)]="passanger.passenger_Type"  id="exampleSelect1">
+                <option  *ngFor="let option of options" value="{{option.id}}">{{option.name}}</option>
+              </select>
+              
         </div>
         <div class="form-group col-md-4">
                 <label for="inputZip">{{'find-passenger.label-check-by-rep' | translate}}</label>
-                <input type="checkbox" [(ngModel)]="passanger.check_by_REP" name="passanger.Check_by_REP" class="form-control" id="inputZip" >
+                <input type="checkbox" [(ngModel)]="passanger.check_By_REP" name="passanger.check_by_REP" class="form-control" id="inputZip" >
               </div>
               <div class="form-group col-md-4">
                       <label for="inputZip">{{'find-passenger.label-check-by-rep' | translate}}</label>
-                      <input type="checkbox" [(ngModel)]="passanger.check_by_LC" name="passanger.Check_by_LC" class="form-control" id="inputZip" >
+                      <input type="checkbox" [(ngModel)]="passanger.check_By_LC" name="passanger.check_by_LC" class="form-control" id="inputZip" >
               </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
               <label for="inputZip">{{'find-passenger.label-datetime-arrival' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.dateTime_Arrival"  name="passanger.DateTime_Arrival" class="form-control" id="inputZip" >
+              <input type="text" [(ngModel)]="passanger.datetime_Arrival"  name="passanger.datetime_Arrival" class="form-control" id="inputZip" >
             </div>
             <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-datetime-departure' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.dateTime_Departure"  name="passanger.DateTime_Departure" class="form-control" id="inputZip" >
+                <input type="text" [(ngModel)]="passanger.datetime_Departure"  name="passanger.datetime_Departure" class="form-control" id="inputZip" >
               </div>
 
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-pickup-time' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.pickup_Time"  name="passanger.DateTime_Departure" class="form-control" id="inputZip" >
+                <input type="text" [(ngModel)]="passanger.pickup_Time"  name="passanger.datetime_Departure" class="form-control" id="inputZip" >
               </div>
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-remarks-field' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.remarks_Field"  name="passanger.DateTime_Departure" class="form-control" id="inputZip" >
+                <input type="text" [(ngModel)]="passanger.remarks_Field"  name="passanger.datetime_Departure" class="form-control" id="inputZip" >
               </div>
 
         </div>
@@ -82,7 +86,7 @@
     <div class="form-row">
       <div class="form-group col-md-1">
         <label for="inputEmail4">{{'find-passenger.label-id' | translate}}</label>
-        <input type="number" [(ngModel)]="passanger.iD" class="form-control" readonly name="passanger.ID" id="inputEmail4">
+        <input type="number" [(ngModel)]="passanger.id" class="form-control" readonly name="passanger.ID" id="inputEmail4">
       </div>
       <div class="form-group col-md-3">
         <label for="inputPassword4">{{'find-passenger.label-booking-id' | translate}}</label>
@@ -108,18 +112,18 @@
       </div>
       <div class="form-group col-md-4">
         <label for="inputZip">{{'find-passenger.label-supplier-reference' | translate}}</label>
-        <input type="text" [(ngModel)]="passanger.supplier_reference" readonly name="passanger.Supplier_reference" class="form-control" id="inputZip" >
+        <input type="text" [(ngModel)]="passanger.supplier_Reference" readonly name="passanger.Supplier_reference" class="form-control" id="inputZip" >
       </div>
   
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
               <label for="inputZip">{{'find-passenger.label-room-type' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.room_type" readonly name="passanger.Room_type" class="form-control" id="inputZip" >
+              <input type="text" [(ngModel)]="passanger.room_Type" readonly name="passanger.Room_type" class="form-control" id="inputZip" >
           </div>
           <div class="form-group col-md-4">
               <label for="inputZip">{{'find-passenger.label-number-of-rooms' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.number_of_rooms"readonly name="passanger.Number_of_rooms" class="form-control" id="inputZip" >
+              <input type="text" [(ngModel)]="passanger.number_Of_Rooms"readonly name="passanger.Number_of_rooms" class="form-control" id="inputZip" >
           </div>
         <!-- <div class="form-group col-md-4">
             <label for="inputZip">Leasuremant customer</label>
@@ -168,7 +172,7 @@
 
           <div class="form-group col-md-4">
               <label for="inputZip">{{'find-passenger.label-going-to' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.going_to" readonly name="passanger.Going_to" class="form-control" id="inputZip">
+              <input type="text" [(ngModel)]="passanger.going_To" readonly name="passanger.Going_to" class="form-control" id="inputZip">
             </div>
           <div class="form-group col-md-4">
               <label for="inputState">{{'find-passenger.label-supplier-departure' | translate}}</label>

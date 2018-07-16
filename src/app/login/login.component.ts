@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   };
 
   popUpMessages = {
-    loggedIn: ''
+    loggedIn: '',
+    logInFail: ''
   };
 
   constructor(private translate: TranslateService,
@@ -39,21 +40,29 @@ export class LoginComponent implements OnInit {
   }
 
   getTranslations() {
-    this.translate.get('login-pop-up.label-logged-in"').subscribe(
+    this.translate.get('login-pop-up.label-logged-in').subscribe(
       done => this.popUpMessages.loggedIn = done
+    );
+    this.translate.get('login-pop-up.label-logg-in-fail').subscribe(
+      done => this.popUpMessages.logInFail = done
     );
   }
 
   login(data) {
     this.spinnerLoading = true;
-    this.loginService.login(data).subscribe(res => {
-      console.log(res);
+    this.loginService.login(data).subscribe(
+      res => {
       localStorage.setItem('token', res['token']);
       localStorage.setItem('role', res['role'][0]['authority']);
         this.spinnerLoading = false;
         this.router.navigate(['/wellcome']);
         this.toastr.success(this.popUpMessages.loggedIn);
-      });
+      },
+      err => {
+        this.spinnerLoading = false;
+        this.toastr.error(this.popUpMessages.logInFail);
+      }
+    );
   }
 
   changeDirection(lang) {

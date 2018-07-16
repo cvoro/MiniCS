@@ -15,9 +15,12 @@ export class FindPassengerService {
   constructor(private http: HttpClient) { }
 
   updatePassengerInfo(type) {
-    return this.http.put(environment.apiBaseUrl + 'passengerinfo', type, {headers: this.headers}).map((res) => res);
+    return this.http.put(environment.apiBaseUrl + 'travelinformation', type, {headers: this.headers}).map((res) => res);
   }
   getPassegerInfo(id) {
-    return this.http.get(environment.apiBaseUrl + 'passengerinfo/' + id, {headers: this.headers}).map((res) => res);
+    return this.http.get(environment.apiBaseUrl + 'travelinformation/' + id, {headers: this.headers}).map((res) => res);
+  }
+  getAllPassegerTypes() {
+    return this.http.get(environment.apiBaseUrl + 'passengertype', {headers: this.headers}).map((res: Array<any>) => res);
   }
 }

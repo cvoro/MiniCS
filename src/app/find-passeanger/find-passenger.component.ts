@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { data } from '../travel-list/excelMock';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { FindPassengerService } from './find-passenger.service';
@@ -11,7 +10,7 @@ import { FindPassengerService } from './find-passenger.service';
 })
 export class FindPassangerComponent implements OnInit, OnDestroy {
   bookingID;
-  passangersList = data;
+  passangersList;
   message = '';
 
   passanger = {};
@@ -19,17 +18,25 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   popUpMessages = {
     passengerUpdated: '',
     passengerNotUpdated: '',
-    passengerNotFound: ''
+    passengerNotFound: '',
+    passengerTypesNotLoaded: ''
   };
+  options: any[];
+
 
   constructor(private toastr: ToastrService,
               private translate: TranslateService,
               private findPassengerService: FindPassengerService) {
-    // console.log(localStorage.getItem('bookingID'));
-    
+    this.passanger['lC_First_Name'] = '';
+    this.passanger['lC_Last_Name'] = '';
+
     if (localStorage.getItem('bookingID') != 'undefined') {
       this.findPassanger(localStorage.getItem('bookingID'));
     }
+    this.findPassengerService.getAllPassegerTypes().subscribe(
+      done => this.options = done,
+      err => this.toastr.error(this.popUpMessages.passengerTypesNotLoaded)
+    );
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.getTranslations();
     });
@@ -68,29 +75,20 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   }
 
   findPassanger(bookingID) {
-
     this.findPassengerService.getPassegerInfo(bookingID).subscribe(
       done => {
-        console.log(done);
+        this.passanger = done;
+          if (this.passanger['lC_First_Name'] === null) {
+            this.passanger['lC_First_Name'] = 'Not';
+          }
+          if (this.passanger['lC_Last_Name'] === null) {
+            this.passanger['lC_Last_Name'] = 'selected';
+          }
       },
       err => {
         this.toastr.error(this.popUpMessages.passengerNotFound);
       }
     );
-    // this.passanger = {};
-    // for (let i = 0; i < this.passangersList.length; i++) {
-    //     if (this.passangersList[i].Booking_Id === bookingID) {
-    //       console.log(this.passangersList[i]);
-    //       this.passanger = this.passangersList[i];
-    //     }
-    // }
-
-    // if (Object.keys(this.passanger).length === 0) {
-    //     this.toastr.error('No passenger found with that booking ID!');
-    //     this.passanger = {};
-    // } else {
-    //   this.message = '';
-    // }
   }
 
   getTranslations() {
@@ -102,6 +100,9 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
     );
     this.translate.get('find-passenger-pop-up.label-passenger-not-found').subscribe(
       done => this.popUpMessages.passengerNotFound = done
+    );
+    this.translate.get('find-passenger-pop-up.label-passenger-types-not-loaded').subscribe(
+      done => this.popUpMessages.passengerTypesNotLoaded = done
     );
   }
 

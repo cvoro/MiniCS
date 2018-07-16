@@ -1,18 +1,18 @@
 <div class="container">
     <h2>Upload lists:</h2>
 <div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Upload Arrival_list</label>
+  <label for="example-text-input" class="col-2 col-form-label">{{'upload.label-upload-arrival-list' | translate}}</label>
   <div class="col-6">
-    <input class="form-control" type="file"  (change)="arrivalListFileChange($event)" placeholder="Upload file" accept=".xls, .xlsx" value="Artisanal kale" id="upload-arrival-list">
+    <input class="form-control" type="file"  (change)="arrivalListFileChange($event)" accept=".xls, .xlsx"  id="upload-arrival-list">
   </div>
-  <button class="btn btn-success col-1" (click)="uploadArrivalListFile()" >Upload</button>
+  <button class="btn btn-success col-1" (click)="uploadArrivalListFile()" >{{'upload.label-upload-button' | translate}}</button>
 </div>
 <div class="form-group row">
-  <label for="example-search-input" class="col-2 col-form-label">Upload Travel_list</label>
+  <label for="example-search-input" class="col-2 col-form-label">{{'upload.label-upload-travel-list' | translate}}</label>
   <div class="col-6">
-    <input class="form-control" type="file" (change)="travelListFileChange($event)" value="How do I shoot web" id="upload-transfer-list">
+    <input class="form-control" type="file" (change)="travelListFileChange($event)"  id="upload-transfer-list">
   </div>
-  <button class="btn btn-success col-1" (click)="uploadTransferListFile()">Upload</button>
+  <button class="btn btn-success col-1" (click)="uploadTransferListFile()">{{'upload.label-upload-button' | translate}}</button>
 </div>
 </div>
 

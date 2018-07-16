@@ -35,11 +35,16 @@ import { PassangersComponent } from './passenger-type/passengers-type.component'
 import { LeisureConsultantsService } from './leisure-consultants/leisure-consultants.service';
 import { HotelsService } from './hotels/hotels.service';
 import { ButtonComponent } from './travel-list/button/button.component';
-import { FindPassangerComponent } from './find-paseanger/find-passenger.component';
+import { FindPassangerComponent } from './find-passeanger/find-passenger.component';
+import { DropdownComponent } from './travel-list/dropdown/dropdown.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -56,7 +61,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FindPassangerComponent,
     FilterPipe,
     CheckHotelComponent,
-    ButtonComponent
+    ButtonComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -74,9 +80,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MiniCSRoutingModule,
     Ng2SmartTableModule,
     FormsModule,
-    FilterPipeModule
+    FilterPipeModule,
+    NoopAnimationsModule
   ],
-  entryComponents: [ButtonComponent],
+  entryComponents: [ButtonComponent, DropdownComponent],
   providers: [UploadService, LoginService, PassengerTypeService, LeisureConsultantsService, HotelsService],
   bootstrap: [AppComponent]
 })

@@ -49,7 +49,7 @@ addedConslutants = [];
     add: {
       addButtonContent: '<i class="fas fa-plus"></i>',
       createButtonContent: '<i class="fas fa-check"></i>',
-      cancelButtonContent: '<i class="fas fa-ban"></i>',
+      cancelButtonContent: '<i class="fas fa-times"></i>',
       confirmCreate: true
     },
     edit: {

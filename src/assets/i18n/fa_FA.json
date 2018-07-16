@@ -79,6 +79,23 @@
         "label-pickup-time": "زمان را انتخاب کنید",
         "label-remarks-field": "قسمت نظرات"
     },
+    "upload": {
+        "label-upload-arrival-list": "بارگذاری لیست ورود",
+        "label-upload-travel-list": "آپلود لیست سفر",
+        "label-upload-button": "بارگذاری"
+    },
+    "passenger-type": {
+        "label-add-passenger-type": "نوع مسافر را اضافه کنید",
+        "label-type": "تایپ کنید",
+        "label-add": "اضافه کردن",
+        "label-save": "صرفه جویی",
+        "label-id": "شناسه",
+        "label-delete-edit": "حذف / ویرایش",
+        "label-edit": "ویرایش"
+    },
+    "leisure-consultants": {
+        "label-add-leisure-consultants": "مشاوران اوقات فراغت را اضافه کنید"
+    },
     "nab-bar-pop-up": {
         "label-logged-out": "خارج شده است"
     },
@@ -105,7 +122,8 @@
         "label-passenger-type-not-updated": "نوع مسافر به روز نشده است"
     },
     "login-pop-up": {
-        "label-logged-in": "وارد شده!"
+        "label-logged-in": "وارد شده!",
+        "label-logg-in-fail": "ورود ناموفق بود"
     },
     "leisure-consultants-pop-up": {
         "label-consultants-not-loaded": "لیست مشاوران بارگیری نشده است!",
@@ -125,9 +143,11 @@
     "find-passenger-pop-up": {
          "label-passenger-updated": "اطلاعات مسافر به روز شده!",
          "label-passenger-not-updated": "اطلاعات مسافر به روز نشده است!",
-         "label-passenger-not-found": "مسافر با شناسه یافت نشد!"  
+         "label-passenger-not-found": "مسافر با شناسه یافت نشد!",
+         "label-passenger-types-not-loaded": "نوع مسافر بارگیری نمی شود!" 
     },
     "check-hotel-pop-up": {
-        "label-hotel-hot-found": "هتل یافت نشد"
+        "label-hotel-hot-found": "هتل یافت نشد",
+        "label-hotel-not-assigned": "هیچ هتل جت قطعی نیست!"
     }
 }

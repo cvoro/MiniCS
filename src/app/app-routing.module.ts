@@ -9,7 +9,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { CheckHotelComponent } from './check-hotel/check-hotel.component';
 import { AdminGuard } from './admin.guard';
 import { PassangersComponent } from './passenger-type/passengers-type.component';
-import { FindPassangerComponent } from './find-paseanger/find-passenger.component';
+import { FindPassangerComponent } from './find-passeanger/find-passenger.component';
 import { RouteGuard } from './route.guard';
 
 const routes: Routes = [

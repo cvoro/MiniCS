@@ -11,7 +11,8 @@ export class RouteGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if ((localStorage.getItem('role') === 'ADMIN' || localStorage.getItem('role') === 'REP') && localStorage.getItem('token') != null ) {
+      // tslint:disable-next-line:max-line-length
+      if ((localStorage.getItem('role') === 'LC' || localStorage.getItem('role') === 'REP' || localStorage.getItem('role') === 'ADMIN') && localStorage.getItem('token') != null ) {
         return true;
       } else {
         this.router.navigate(['/login']);

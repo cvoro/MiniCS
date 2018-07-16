@@ -15,12 +15,12 @@ export class TravelListService {
   constructor(private http: HttpClient) { }
 
   updateTravelInfo(type) {
-    return this.http.put(environment.apiBaseUrl + 'travels', type, {headers: this.headers}).map((res) => res);
+    return this.http.put(environment.apiBaseUrl + 'travelinformation', type, {headers: this.headers}).map((res) => res);
   }
   deleteTravelInfo(id) {
-    return this.http.delete(environment.apiBaseUrl + 'travels/' + id, {headers: this.headers}).map((res) => res);
+    return this.http.delete(environment.apiBaseUrl + 'travelinformation/' + id, {headers: this.headers}).map((res) => res);
   }
   getAllTravelInfo() {
-    return this.http.get(environment.apiBaseUrl + 'travels', {headers: this.headers}).map((res: Array<any>) => res);
+    return this.http.get(environment.apiBaseUrl + 'travelinformation', {headers: this.headers}).map((res: Array<any>) => res);
   }
 }

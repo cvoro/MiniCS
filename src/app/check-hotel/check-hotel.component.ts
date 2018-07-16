@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from '../travel-list/excelMock';
 import { Router } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { CheckHotelService } from './check-hotel.service';
@@ -11,25 +10,24 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./check-hotel.component.css']
 })
 export class CheckHotelComponent implements OnInit {
-  data = data;
+  data;
   loggedUser;
-  passanger = {};
+  passengers = [];
   popUpMessages = {
-    hotelNotFound: ''
-  }
+    hotelNotFound: '',
+    hotelNotAssigned: ''
+  };
   constructor(private router: Router,
               private translate: TranslateService,
               private checkHotelService: CheckHotelService,
               private toastr: ToastrService) {
-    // this.loggedUser = localStorage.getItem('loggedInAs');
-    // for (let i = 0; i < this.data.length; i++) {
-    //   if (this.data[i].Pax_Name === this.loggedUser) {
-    //     this.passanger = this.data[i];
-    //   }
-    // }
     this.checkHotelService.checkHotel().subscribe(
       done => {
         console.log(done);
+        this.passengers = done;
+        if (this.passengers.length === 0) {
+          this.toastr.warning(this.popUpMessages.hotelNotAssigned);
+        }
       },
       err => {
         this.toastr.warning(this.popUpMessages.hotelNotFound);
@@ -53,6 +51,10 @@ export class CheckHotelComponent implements OnInit {
     this.translate.get('check-hotel-pop-up.label-hotel-hot-found').subscribe(
       done => this.popUpMessages.hotelNotFound = done
     );
+    this.translate.get('check-hotel-pop-up.label-hotel-not-assigned').subscribe(
+      done => this.popUpMessages.hotelNotAssigned = done
+    );
+    
   }
 
   changeDirection(lang) {

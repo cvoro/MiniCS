@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent implements OnInit {
-  
+
   public renderValue;
-  
+
   @Input() value;
 
   constructor() {  }
@@ -17,9 +17,8 @@ export class ButtonComponent implements OnInit {
     this.renderValue = this.value;
   }
 
-  example() {
+  valueChanged() {
     this.value = !this.value;
-    alert(this.value);
   }
 
 }

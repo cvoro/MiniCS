@@ -10,10 +10,37 @@ h2{
     padding-bottom: 30px;
 }
 
-.fa-plus{
+input .form-control{
+    color: red;
+  }
+
+  :host /deep/ .fa-plus{
     color: blue;
     text-align: center;
-    padding-left: 30%;
+    /* padding-left: 30%; */
+    font-size: 20px;
+  }
+
+  :host /deep/ .fa-check{
+    color: green;
+    padding-left: 20%;
+    font-size: 20px;
+  }
+  :host /deep/ .fa-ban {
+    color: red;
+    padding-left: 20%;
+    font-size: 20px;
+  }
+
+  :host /deep/ .fa-pencil-alt {
+    padding-left:15%;
+    font-size: 20px;
+  }
+
+  :host /deep/ .fa-times {
+    color: red;
+    padding-left:15%;
+    font-size: 20px;
   }
 
   :host /deep/ .ng2-smart-actions-title-add{

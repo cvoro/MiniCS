@@ -79,6 +79,23 @@
         "label-pickup-time": "Pick up time",
         "label-remarks-field": "Remarks field"
     },
+    "upload": {
+        "label-upload-arrival-list": "Upload Arrival_list",
+        "label-upload-travel-list": "Upload Travel_list",
+        "label-upload-button": "Upload"
+    },
+    "passenger-type": {
+        "label-add-passenger-type": "Add passenger type",
+        "label-type": "Type",
+        "label-add": "Add",
+        "label-save": "Save",
+        "label-id": "ID",
+        "label-delete-edit": "Delete/Edit",
+        "label-edit": "Edit"
+    },
+    "leisure-consultants": {
+        "label-add-leisure-consultants": "Add leisure consultants"
+    },
     "nab-bar-pop-up": {
         "label-logged-out": "Logged out!"
     },
@@ -105,7 +122,8 @@
         "label-passenger-type-not-updated": "Passenger type not updated"
     },
     "login-pop-up": {
-        "label-logged-in": "Logged in!"
+        "label-logged-in": "Logged in!",
+        "label-logg-in-fail": "Login failed!"
     },
     "leisure-consultants-pop-up": {
         "label-consultants-not-loaded": "Consultants list not loaded!",
@@ -125,9 +143,11 @@
     "find-passenger-pop-up": {
          "label-passenger-updated": "Passenger data updated!",
          "label-passenger-not-updated": "Passenger data not updated!",
-         "label-passenger-not-found": "Passenger with that ID not found!"  
+         "label-passenger-not-found": "Passenger with that ID not found!",
+         "label-passenger-types-not-loaded": "Passenger types not loaded!"  
     },
     "check-hotel-pop-up": {
-        "label-hotel-hot-found": "Hotel not found!"
+        "label-hotel-hot-found": "Hotel not found!",
+        "label-hotel-not-assigned": "No hotels assigned jet!"
     }
 }

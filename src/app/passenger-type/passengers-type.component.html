@@ -1,28 +1,28 @@
 <div class="container">
-    <h2>Add passenger type:</h2>
+    <h2>{{ 'passenger-type.label-add-passenger-type' | translate}}:</h2>
 <div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Type:</label>
+  <label for="example-text-input" class="col-2 col-form-label">{{ 'passenger-type.label-type' | translate}}:</label>
   <div class="col-6">
     <input class="form-control" [(ngModel)]="passengerType.name" type="text" name="type" placeholder="Passanger type" id="example-text-input">
   </div>
-  <button class="btn btn-success col-1"  *ngIf="!editButtonClicked" (click)="addType(passengerType)" >Add</button>
-  <button class="btn btn-success col-1" *ngIf="editButtonClicked" (click)="save(passengerType)" >Save</button>
+  <button class="btn btn-success col-1"  *ngIf="!editButtonClicked" (click)="addType(passengerType)" >{{ 'passenger-type.label-add' | translate}}</button>
+  <button class="btn btn-success col-1" *ngIf="editButtonClicked" (click)="save(passengerType)" >{{ 'passenger-type.label-save' | translate}}</button>
 </div>
 
 <div class="col-9">
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Type</th>
-        <th scope="col">Delete/Edit</th>
+        <th scope="col">{{ 'passenger-type.label-id' | translate}}</th>
+        <th scope="col">{{ 'passenger-type.label-type' | translate}}</th>
+        <th scope="col">{{ 'passenger-type.label-delete-edit' | translate}}</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let li of passengerTypeList;let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{li.name}}</td>
-        <td><button class="btn btn-danger" (click)="delete(i)">X</button> <button class="btn btn-primary" (click)="edit(i)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="delete(i)">X</button> <button class="btn btn-primary" (click)="edit(i)">{{ 'passenger-type.label-edit' | translate}}</button></td>
       </tr>
     </tbody>
   </table>

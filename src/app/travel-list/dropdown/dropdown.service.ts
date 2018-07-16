@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CheckHotelService {
+export class DropdownService {
 
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export class CheckHotelService {
 
   constructor(private http: HttpClient) { }
 
-  checkHotel() {
-    return this.http.get(environment.apiBaseUrl + 'travelinformation/lc' , {headers: this.headers}).map((res: any[]) => res);
+  getAllPassegerTypes() {
+    return this.http.get(environment.apiBaseUrl + 'passengertype', {headers: this.headers}).map((res: Array<any>) => res);
   }
 }
