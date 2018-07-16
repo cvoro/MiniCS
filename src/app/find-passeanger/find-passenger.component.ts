@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { FindPassengerService } from './find-passenger.service';
+import { passengerType, PassengerType } from './passenterType';
 
 @Component({
   selector: 'app-find-passenger',
@@ -13,7 +14,7 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   passangersList;
   message = '';
 
-  passanger = {};
+  passanger: PassengerType;
 
   popUpMessages = {
     passengerUpdated: '',
@@ -30,7 +31,7 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
     this.passanger['lC_First_Name'] = '';
     this.passanger['lC_Last_Name'] = '';
 
-    if (localStorage.getItem('bookingID') != 'undefined') {
+    if (localStorage.getItem('bookingID') !== 'undefined') {
       this.findPassanger(localStorage.getItem('bookingID'));
     }
     this.findPassengerService.getAllPassegerTypes().subscribe(
@@ -107,7 +108,7 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.passanger = {};
+    this.passanger = passengerType;
     localStorage.setItem('bookingID', undefined);
   }
 
