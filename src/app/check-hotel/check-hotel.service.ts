@@ -7,11 +7,6 @@ import { environment } from '../../environments/environment';
 })
 export class CheckHotelService {
 
-  private headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': localStorage.getItem('token')
-  });
-
   constructor(private http: HttpClient) { }
 
   checkHotel() {
