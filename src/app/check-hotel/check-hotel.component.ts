@@ -54,7 +54,6 @@ export class CheckHotelComponent implements OnInit {
     this.translate.get('check-hotel-pop-up.label-hotel-not-assigned').subscribe(
       done => this.popUpMessages.hotelNotAssigned = done
     );
-    
   }
 
   changeDirection(lang) {

@@ -56,20 +56,20 @@
         <div class="form-row">
           <div class="form-group col-md-3">
               <label for="inputZip">{{'find-passenger.label-datetime-arrival' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.datetime_Arrival"  name="passanger.datetime_Arrival" class="form-control" id="inputZip" >
+              <input type="text" readonly [ngModel]="passanger.datetime_Arrival | date:'medium'"  name="passanger.datetime_Arrival" class="form-control" id="inputZip" >
             </div>
             <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-datetime-departure' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.datetime_Departure"  name="passanger.datetime_Departure" class="form-control" id="inputZip" >
+                <input type="text" readonly [ngModel]="passanger.datetime_Departure | date:'medium'"  name="passanger.datetime_Departure" class="form-control" id="inputZip" >
               </div>
 
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-pickup-time' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.pickup_Time"  name="passanger.datetime_Departure" class="form-control" id="inputZip" >
+                <input type="text" [(ngModel)]="passanger.pickup_Time"  name="passanger.pickup_Time" class="form-control" id="inputZip" >
               </div>
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-remarks-field' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.remarks_Field"  name="passanger.datetime_Departure" class="form-control" id="inputZip" >
+                <input type="text" [(ngModel)]="passanger.remarks_Field"  name="passanger.remarks_Field" class="form-control" id="inputZip" >
               </div>
 
         </div>

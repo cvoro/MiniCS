@@ -69,8 +69,8 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
        if (!this.passanger['lC_First_Name'] && !this.passanger['lC_Last_Name']) {
          this.passanger['lC_First_Name'] = 'Not';
          this.passanger['lC_Last_Name'] = 'selected';
-         this.toastr.success(this.popUpMessages.passengerUpdated);
-      }
+        }
+        this.toastr.success(this.popUpMessages.passengerUpdated);
       },
       err => {
         this.toastr.error(this.popUpMessages.passengerNotUpdated);
