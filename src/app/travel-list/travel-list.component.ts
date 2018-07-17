@@ -18,7 +18,6 @@ export class TravelListComponent implements OnInit {
   options = [];
   settings;
 
-
   popUpMessages = {
     rowUpdated: '',
     rowNotUpdated: '',
@@ -40,6 +39,7 @@ export class TravelListComponent implements OnInit {
                 this.travelService.getAllTravelInfo().subscribe(
                   done => {
                     this.data = done;
+                    // console.log(done);
                   },
                   err => {
                     this.toastr.error(this.popUpMessages.travelsNotLoaded);
@@ -55,7 +55,7 @@ export class TravelListComponent implements OnInit {
                       });
                     });
                     this.settings = this.addSettings();
-                    console.log(this.options);
+                    // console.log(this.options);
                   },
                   err => {
                     this.toastr.error('Passenger types not loaded');
@@ -94,34 +94,44 @@ export class TravelListComponent implements OnInit {
       },
       columns: {
         id: {
-           title: 'ID'
+           title: 'ID',
+           editable: false
         },
         booking_Id: {
-           title: 'Booking ID'
+           title: 'Booking ID',
+           editable: false
          },
         booking_Date: {
-           title: 'Booking Date'
+           title: 'Booking Date',
+           editable: false
            },
         hotel_Name: {
-           title: 'Hotel Name'
+           title: 'Hotel Name',
+           editable: false
          },
         pax_Name: {
-             title: 'Pax Name'
+             title: 'Pax Name',
+             editable: false
         },
         number_Of_Pax: {
-             title: 'No. Of Pax'
+             title: 'No. Of Pax',
+             editable: false
         },
         supplier_Reference: {
-             title: 'Supplier reference'
+             title: 'Supplier reference',
+             editable: false
         },
         room_Type: {
-             title: 'Room type'
+             title: 'Room type',
+             editable: false
         },
         number_Of_Rooms: {
-             title: 'Number of rooms'
+             title: 'Number of rooms',
+             editable: false
         },
         leisure_Consultants: {
-             title: 'Leisure Consultants'
+             title: 'Leisure Consultants',
+             editable: false
         },
         contact_Number: {
              title: 'Contact number'
@@ -156,53 +166,75 @@ export class TravelListComponent implements OnInit {
             type: 'checkbox'
           }
         },
+        pickup_Time: {
+             title: 'Pick up time'
+        },
+        remarks_Field: {
+             title: 'Remarks field'
+        },
         leaving_From: {
-             title: 'Leaving From'
+             title: 'Leaving From',
+             editable: false
         },
         supplier_Arrival: {
-             title: 'Supplier arrival'
+             title: 'Supplier arrival',
+             editable: false
         },
         datetime_Arrival: {
-             title: 'Date & Time  arrival'
+             title: 'Date & Time  arrival',
+             editable: false
         },
         terminal_Arrival: {
-             title: 'Terminal  arrival'
+             title: 'Terminal  arrival',
+             editable: false
         },
         car_Name_Arrival: {
-             title: 'Car Name arrival'
+             title: 'Car Name arrival',
+             editable: false
         },
         car_Transfer_Type_Arrival: {
-             title: 'Car Transfer Type arrival'
+             title: 'Car Transfer Type arrival',
+             editable: false
         },
         airline_Arrival: {
-             title: 'Airline arrival'
+             title: 'Airline arrival',
+             editable: false
         },
         flightNo_Arrival: {
-             title: 'Flight No. arrival'
+             title: 'Flight No. arrival',
+             editable: false
         },
         going_To: {
-             title: 'Going To'
+             title: 'Going To',
+             editable: false
         },
         supplier_Departure: {
-             title: 'Supplier departure'
+             title: 'Supplier departure',
+             editable: false
         },
         datetime_Departure: {
-             title: 'Date & Time departure'
+             title: 'Date & Time departure',
+             editable: false
         },
         terminal_Departure: {
-             title: 'Terminal departure'
+             title: 'Terminal departure',
+             editable: false
         },
         car_Name_Departure: {
-             title: 'Car Name departure'
+             title: 'Car Name departure',
+             editable: false
         },
         car_Transfer_Type_Departure: {
-             title: 'Car Transfer Type departure'
+             title: 'Car Transfer Type departure',
+             editable: false
         },
         airline_Departure: {
-             title: 'Airline departure'
+             title: 'Airline departure',
+             editable: false
         },
         flightNo_Departure: {
-             title: 'Flight No. departure'
+             title: 'Flight No. departure',
+             editable: false
         }
           }
       };
@@ -226,7 +258,6 @@ export class TravelListComponent implements OnInit {
     );
   }
 
-  
   changeDirection(lang) {
     let items = document.getElementsByTagName('th');
     for (let i = 0; i < items.length; i++) {
@@ -240,7 +271,7 @@ export class TravelListComponent implements OnInit {
 
   // TABLE ACTIONS
   deleteRecord(event) {
-    console.log(event);
+    // console.log(event);
     this.travelService.deleteTravelInfo(event.data).subscribe(
       done => {
         event.confirm.resolve(event.source.data);
@@ -253,7 +284,7 @@ export class TravelListComponent implements OnInit {
   }
 
   updateRecord(event) {
-    console.log(event);
+    // console.log(event);
     this.travelService.updateTravelInfo(event.newData).subscribe(
       done => {
         event.confirm.resolve(event.newData);
@@ -266,7 +297,7 @@ export class TravelListComponent implements OnInit {
   }
 
   rowSelected(event) {
-    console.log(event);
+    // console.log(event);
   }
 
 }

@@ -15,6 +15,14 @@ export class CheckHotelService {
   constructor(private http: HttpClient) { }
 
   checkHotel() {
-    return this.http.get(environment.apiBaseUrl + 'travelinformation/lc' , {headers: this.headers}).map((res: any[]) => res);
+    return this.http.get(environment.apiBaseUrl + 'travelinformation/lc' , {headers: this.jwt()}).map((res: any[]) => res);
+  }
+
+  private jwt() {
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        });
+        return headers;
   }
 }

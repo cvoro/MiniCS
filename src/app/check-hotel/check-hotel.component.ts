@@ -23,7 +23,7 @@ export class CheckHotelComponent implements OnInit {
               private toastr: ToastrService) {
     this.checkHotelService.checkHotel().subscribe(
       done => {
-        console.log(done);
+        // console.log(done);
         this.passengers = done;
         if (this.passengers.length === 0) {
           this.toastr.warning(this.popUpMessages.hotelNotAssigned);

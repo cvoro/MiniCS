@@ -2,7 +2,7 @@ export const passengerType = {
     'airline_Arrival': '',
     'airline_Departure': '',
     'booking_Date': null,
-    'booking_Id': '',
+    'booking_Id': null,
     'car_Name_Arrival': null,
     'car_Name_Departure': null,
     'car_Transfer_Type_Arrival': null,

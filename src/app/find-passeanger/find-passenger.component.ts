@@ -42,6 +42,8 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
    }
 
    ngOnInit() {
+    this.passanger = passengerType;
+
     this.changeDirection(this.translate.currentLang);
 
     this.translate.onLangChange.subscribe(lang => {
@@ -63,8 +65,12 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   savePassengerInfo() {
    this.findPassengerService.updatePassengerInfo(this.passanger).subscribe(
      done => {
-       this.toastr.success(this.popUpMessages.passengerUpdated);
        this.passanger = done;
+       if (!this.passanger['lC_First_Name'] && !this.passanger['lC_Last_Name']) {
+         this.passanger['lC_First_Name'] = 'Not';
+         this.passanger['lC_Last_Name'] = 'selected';
+         this.toastr.success(this.popUpMessages.passengerUpdated);
+      }
       },
       err => {
         this.toastr.error(this.popUpMessages.passengerNotUpdated);
@@ -76,12 +82,10 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
     this.findPassengerService.getPassegerInfo(bookingID).subscribe(
       done => {
         this.passanger = done;
-          if (this.passanger['lC_First_Name'] === null) {
-            this.passanger['lC_First_Name'] = 'Not';
-          }
-          if (this.passanger['lC_Last_Name'] === null) {
-            this.passanger['lC_Last_Name'] = 'selected';
-          }
+        if (!this.passanger['lC_First_Name'] && !this.passanger['lC_Last_Name']) {
+         this.passanger['lC_First_Name'] = 'Not';
+         this.passanger['lC_Last_Name'] = 'selected';
+       }
       },
       err => {
         this.toastr.error(this.popUpMessages.passengerNotFound);

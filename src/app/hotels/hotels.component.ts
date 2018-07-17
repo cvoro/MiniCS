@@ -32,8 +32,8 @@ export class HotelsComponent implements OnInit {
                     this.hotelsList.sort(this.dynamicSort('hotel_Name'));
                     this.hotelsService.getAllConsultants().subscribe(
                       consultants => {
-                              this.leisureConsultantsList = consultants,
-                              console.log(consultants);
+                              this.leisureConsultantsList = consultants;
+                              // console.log(consultants);
                             },
                       err => this.toastr.warning(this.popUpMessages.consultantListNotLoaded)
                     );
@@ -96,7 +96,7 @@ export class HotelsComponent implements OnInit {
       'id': hotel.id,
       'user_Id': Number(user_Id)
     };
-    console.log(data);
+    // console.log(data);
     this.hotelsService.updateLeisureConsultant(data).subscribe(
       done => this.toastr.success(this.popUpMessages.consultantUpdated),
       err => this.toastr.error(this.popUpMessages.consultantNotUpdated)

@@ -123,7 +123,7 @@ addedConslutants = [];
 
   addConsultant(consultant) {
     this.addedConslutants.push(consultant);
-    console.log(this.addedConslutants);
+    // console.log(this.addedConslutants);
   }
 
   updateRecord(event) {
@@ -140,8 +140,8 @@ addedConslutants = [];
   }
 
   deleteRecord(event) {
-    console.log(event);
-    console.log('delete');
+    // console.log(event);
+    // console.log('delete');
     this.leisureService.deleteLeisureConsultant(event.data.id).subscribe(
       done => {
         this.toastr.success(this.popUpMessages.consultantDeleted);
@@ -154,7 +154,7 @@ addedConslutants = [];
   }
 
   createRecord(event) {
-    console.log(event.newData);
+    // console.log(event.newData);
     this.leisureService.addNewLeisureConsultant(event.newData).subscribe(
       done => {
         this.toastr.success(this.popUpMessages.consultantAdded);

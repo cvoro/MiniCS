@@ -19,14 +19,14 @@ export class DropdownComponent implements OnInit {
    }
 
    ngOnInit() {
-    this.dropdownService.getAllPassegerTypes().subscribe(
-      done => {
-        this.types = done;
-      },
-      err => {
-        this.toastr.error('Passenger types not loaded');
-      }
-    );
+    // this.dropdownService.getAllPassegerTypes().subscribe(
+    //   done => {
+    //     this.types = done;
+    //   },
+    //   err => {
+    //     this.toastr.error('Passenger types not loaded');
+    //   }
+    // );
    }
 
 }

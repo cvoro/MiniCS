@@ -31,7 +31,9 @@ export class PassangersComponent implements OnInit {
               private passengerTypeService: PassengerTypeService,
               private toastr: ToastrService) {
       passengerTypeService.getAllPassegerTypes().subscribe(
-        done => {this.passengerTypeList = done, console.log(done); },
+        done => {this.passengerTypeList = done;
+          // , console.log(done);
+         },
         error => {this.toastr.warning('Passenger types not loaded!') }
       );
 

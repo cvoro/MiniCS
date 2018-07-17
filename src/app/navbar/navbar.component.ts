@@ -29,9 +29,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     
     if (localStorage.getItem('lang') !== null) {
       translate.use(localStorage.getItem('lang'));
-      // translate.setDefaultLang(localStorage.getItem('lang'));
     } else {
-      // translate.setDefaultLang('fa_FA');
       translate.use('fa_FA');
     }
     setInterval(() => {
