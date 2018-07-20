@@ -80,9 +80,18 @@
         "label-remarks-field": "قسمت نظرات"
     },
     "upload": {
+        "label-upload-file": "آپلود فایل",
+        "label-upload-rules": "قوانین آپلود",
+        "label-first-rule": "خواندن فایل توسط شاخص ستون انجام می شود به طوری که برای بارگذاری پرونده با موفقیت همه ستون ها باید در جهت درست باشند.",
+        "label-second-rule": "اگر شماره رزرو وجود ندارد، این رکورد نیز از بین خواهد رفت و ذخیره نخواهد شد",
+        "label-third-rule": "اگر ستون های جدید اضافه شوند، آنها نیز ذخیره نخواهند شد زیرا فایل خواندن با استفاده از شاخص انجام می شود",
         "label-upload-arrival-list": "بارگذاری لیست ورود",
         "label-upload-travel-list": "آپلود لیست سفر",
         "label-upload-button": "بارگذاری"
+    },
+    "manage-hotels": {
+        "label-find-hotel": "هتل را بر اساس نام هتل پیدا کنید",
+        "label-hotels-list": "لیست هتل ها"
     },
     "passenger-type": {
         "label-add-passenger-type": "نوع مسافر را اضافه کنید",

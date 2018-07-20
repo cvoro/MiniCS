@@ -80,9 +80,18 @@
         "label-remarks-field": "Remarks field"
     },
     "upload": {
+        "label-upload-file": "Upload file",
+        "label-upload-rules": "Upload rules",
+        "label-first-rule": "File read is done by column index so in order to upload the file successfully all columns must be in correct order.",
+        "label-second-rule": "If booking id is missing that record will also be skipped and won't be saved",
+        "label-third-rule": "If new columns are added they also won't be saved because file read is done by index",
         "label-upload-arrival-list": "Upload Arrival_list",
         "label-upload-travel-list": "Upload Travel_list",
         "label-upload-button": "Upload"
+    },
+    "manage-hotels": {
+        "label-find-hotel": "Find hotel by name",
+        "label-hotels-list": "Hotels List"
     },
     "passenger-type": {
         "label-add-passenger-type": "Add passenger type",

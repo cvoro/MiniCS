@@ -73,9 +73,11 @@ export class UploadComponent implements OnInit {
         error => {
           console.log(error);
           if (error.status === 412) {
+            // this.toastr.error(error.statusText);
             // WHEN date and time in excel is not valid
             this.toastr.error( this.popUpMessages.dateNotValid);
           } else {
+            // this.toastr.error(error.statusText);
             // OTHER errors
             this.toastr.error( this.popUpMessages.fileNotUploaded);
           }
