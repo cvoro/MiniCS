@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as XLSX from 'xlsx';
 import { ToastrService } from 'ngx-toastr';
 import { UploadService } from './upload.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { arrival, transfer } from './uploadHeaders';
 
 
 @Component({
@@ -19,7 +19,12 @@ export class UploadComponent implements OnInit {
     fileUploaded: '',
     fileNotUploaded: '',
     dateNotValid: '',
-    uploadArrivalList: ''
+    uploadArrivalList: '',
+    statusText: {
+      first: '',
+      second: '',
+      third: ''
+    }
   };
 
   constructor(private toastr: ToastrService,
@@ -48,6 +53,15 @@ export class UploadComponent implements OnInit {
     this.translate.get('file-upload-pop-up.label-date-not-valid').subscribe(
       done => this.popUpMessages.dateNotValid = done
     );
+    this.translate.get('file-upload-pop-up.label-status-text-first').subscribe(
+      done => this.popUpMessages.statusText.first = done
+    );
+    this.translate.get('file-upload-pop-up.label-status-text-second').subscribe(
+      done => this.popUpMessages.statusText.second = done
+    );
+    this.translate.get('file-upload-pop-up.label-status-text-third').subscribe(
+      done => this.popUpMessages.statusText.third = done
+    );
   }
 
   arrivalListFileChange(event) {
@@ -64,20 +78,20 @@ export class UploadComponent implements OnInit {
       let formData: FormData = new FormData();
       formData.append('file', file, file.name);
       this.uploadService.uploadArrivalFile(formData).subscribe(
-        data => {
-          console.log('success'),
+        done => {
           this.arrivalListFile = null;
           document.getElementById('upload-arrival-list')['value'] = '';
           this.toastr.success( this.popUpMessages.fileUploaded);
         },
         error => {
-          console.log(error);
+          this.arrivalListFile = null;
+          document.getElementById('upload-arrival-list')['value'] = '';
           if (error.status === 412) {
-            // this.toastr.error(error.statusText);
-            // WHEN date and time in excel is not valid
-            this.toastr.error( this.popUpMessages.dateNotValid);
+            // WHEN some cell is not in correct format
+            this.toastr.error(this.popUpMessages.statusText.first + ' ' + error.error.row_index + ' ' +
+                              this.popUpMessages.statusText.second + ' ' + arrival[error.error.column_index - 1].column_title + ' ' +
+                              this.popUpMessages.statusText.third);
           } else {
-            // this.toastr.error(error.statusText);
             // OTHER errors
             this.toastr.error( this.popUpMessages.fileNotUploaded);
           }
@@ -91,17 +105,19 @@ export class UploadComponent implements OnInit {
       let formData: FormData = new FormData();
       formData.append('file', file, file.name);
       this.uploadService.uploadTransferFile(formData).subscribe(
-        data => {
-          console.log('success'),
+        done => {
           this.travellistFile = null;
           document.getElementById('upload-transfer-list')['value'] = '';
           this.toastr.success( this.popUpMessages.fileUploaded);
         },
         error => {
-          console.log(error);
+          this.travellistFile = null;
+          document.getElementById('upload-transfer-list')['value'] = '';
           if (error.status === 412) {
-            // WHEN date and time in excel is not valid
-            this.toastr.error( this.popUpMessages.dateNotValid);
+            // WHEN some cell is not in correct format
+            this.toastr.error(this.popUpMessages.statusText.first + ' ' + error.error.row_index + ' ' +
+                              this.popUpMessages.statusText.second + ' ' + transfer[error.error.column_index - 1].column_title + ' ' +
+                              this.popUpMessages.statusText.third);
           } else if (error.status === 409) {
             // WHEN transfer list is not uploaded first
             this.toastr.error( this.popUpMessages.uploadArrivalList);

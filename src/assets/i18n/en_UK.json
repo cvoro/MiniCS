@@ -85,8 +85,9 @@
         "label-first-rule": "File read is done by column index so in order to upload the file successfully all columns must be in correct order.",
         "label-second-rule": "If booking id is missing that record will also be skipped and won't be saved",
         "label-third-rule": "If new columns are added they also won't be saved because file read is done by index",
+        "label-fourth-rule": "Arrival list must be uploaded before Transfer list",
         "label-upload-arrival-list": "Upload Arrival_list",
-        "label-upload-travel-list": "Upload Travel_list",
+        "label-upload-travel-list": "Upload Transfer_list",
         "label-upload-button": "Upload"
     },
     "manage-hotels": {
@@ -119,7 +120,10 @@
         "label-file-uploaded": "File uploaded!",
         "label-file-not-uploaded": "File not uploaded!",
         "label-upload-arrival-list": "First upload Arrival list!",
-        "label-date-not-valid": "Please fill date time in excel first!"
+        "label-date-not-valid": "Please fill date time in excel first!",
+        "label-status-text-first": "Data in row number",
+        "label-status-text-second": "and column",
+        "label-status-text-third": "is not in correct format or empty!"
     },
     "passenger-type-pop-up": {
         "label-passenger-not-loaded": "Passenger types not loaded!",

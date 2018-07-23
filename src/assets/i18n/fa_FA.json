@@ -85,8 +85,9 @@
         "label-first-rule": "خواندن فایل توسط شاخص ستون انجام می شود به طوری که برای بارگذاری پرونده با موفقیت همه ستون ها باید در جهت درست باشند.",
         "label-second-rule": "اگر شماره رزرو وجود ندارد، این رکورد نیز از بین خواهد رفت و ذخیره نخواهد شد",
         "label-third-rule": "اگر ستون های جدید اضافه شوند، آنها نیز ذخیره نخواهند شد زیرا فایل خواندن با استفاده از شاخص انجام می شود",
+        "label-fourth-rule": "لیست ورود باید قبل از لیست انتقال آپلود شود",
         "label-upload-arrival-list": "بارگذاری لیست ورود",
-        "label-upload-travel-list": "آپلود لیست سفر",
+        "label-upload-travel-list": "بارگذاری نقل و انتقال لیست",
         "label-upload-button": "بارگذاری"
     },
     "manage-hotels": {
@@ -119,7 +120,10 @@
         "label-file-uploaded": "فایل آپلود شد",
         "label-file-not-uploaded": "فایل آپلود نشده است",
         "label-upload-arrival-list": "اولین بار لیست ورودی آپلود",
-        "label-date-not-valid": "لطفا تاریخ زمان را در اکسل برای اولین بار پر کنید"
+        "label-date-not-valid": "لطفا تاریخ زمان را در اکسل برای اولین بار پر کنید",
+        "label-status-text-first": "داده ها در شماره ردیف",
+        "label-status-text-second": "و ستون",
+        "label-status-text-third": "در فرمت صحیح یا خالی نیست"
     },
     "passenger-type-pop-up": {
         "label-passenger-not-loaded": "نوع مسافر بارگیری نمی شود!",
