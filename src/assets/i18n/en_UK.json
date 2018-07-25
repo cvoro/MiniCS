@@ -19,9 +19,9 @@
     "nav-bar": {
         "label-admin-panel": "Admin panel",
         "label-admin-panel-upload": "Upload",
-        "label-admin-panel-add-consultant": "Add Consultant",
+        "label-admin-panel-add-consultant": "Leisure Consultants",
         "label-admin-panel-manage-hotels": "Manage Hotels",
-        "label-admin-panel-passenger-type": "Passenger type",
+        "label-admin-panel-passenger-type": "Passenger types",
         "label-travel-list": "Travel list",
         "label-find-passenger": "Find passenger",
         "label-check-hotel": "Check hotel",
@@ -80,7 +80,7 @@
         "label-remarks-field": "Remarks field"
     },
     "upload": {
-        "label-upload-file": "Upload file",
+        "label-upload-file": "Upload",
         "label-upload-rules": "Upload rules",
         "label-first-rule": "File read is done by column index so in order to upload the file successfully all columns must be in correct order.",
         "label-second-rule": "If booking id is missing that record will also be skipped and won't be saved",
@@ -95,7 +95,7 @@
         "label-hotels-list": "Hotels List"
     },
     "passenger-type": {
-        "label-add-passenger-type": "Add passenger type",
+        "label-add-passenger-type": "Passenger types",
         "label-type": "Type",
         "label-add": "Add",
         "label-save": "Save",
@@ -104,7 +104,7 @@
         "label-edit": "Edit"
     },
     "leisure-consultants": {
-        "label-add-leisure-consultants": "Add leisure consultants"
+        "label-add-leisure-consultants": "Leisure consultants"
     },
     "nab-bar-pop-up": {
         "label-logged-out": "Logged out!"
@@ -132,7 +132,8 @@
         "label-passenger-type-deleted": "Passenger type deleted!",
         "label-passenger-type-not-deleted": "Passenger type not deleted!",
         "label-passenger-type-updated": "Passenger type updated",
-        "label-passenger-type-not-updated": "Passenger type not updated"
+        "label-passenger-type-not-updated": "Passenger type not updated",
+        "label-value-not-entered": "Please enter value!"
     },
     "login-pop-up": {
         "label-logged-in": "Logged in!",

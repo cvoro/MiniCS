@@ -19,7 +19,7 @@
     "nav-bar": {
         "label-admin-panel": "پنل مدیریت",
         "label-admin-panel-upload": "بارگذاری",
-        "label-admin-panel-add-consultant": "مشاوران را اضافه کنید",
+        "label-admin-panel-add-consultant": "مشاوران تفریحی",
         "label-admin-panel-manage-hotels": "مدیریت هتل ها",
         "label-admin-panel-passenger-type": "نوع مسافر",
         "label-travel-list": "لیست سفر",
@@ -80,7 +80,7 @@
         "label-remarks-field": "قسمت نظرات"
     },
     "upload": {
-        "label-upload-file": "آپلود فایل",
+        "label-upload-file": "بارگذاری",
         "label-upload-rules": "قوانین آپلود",
         "label-first-rule": "خواندن فایل توسط شاخص ستون انجام می شود به طوری که برای بارگذاری پرونده با موفقیت همه ستون ها باید در جهت درست باشند.",
         "label-second-rule": "اگر شماره رزرو وجود ندارد، این رکورد نیز از بین خواهد رفت و ذخیره نخواهد شد",
@@ -95,7 +95,7 @@
         "label-hotels-list": "لیست هتل ها"
     },
     "passenger-type": {
-        "label-add-passenger-type": "نوع مسافر را اضافه کنید",
+        "label-add-passenger-type": "نوع مسافر",
         "label-type": "تایپ کنید",
         "label-add": "اضافه کردن",
         "label-save": "صرفه جویی",
@@ -104,7 +104,7 @@
         "label-edit": "ویرایش"
     },
     "leisure-consultants": {
-        "label-add-leisure-consultants": "مشاوران اوقات فراغت را اضافه کنید"
+        "label-add-leisure-consultants": "مشاوران اوقات فراغت"
     },
     "nab-bar-pop-up": {
         "label-logged-out": "خارج شده است"
@@ -132,7 +132,8 @@
         "label-passenger-type-deleted": "نوع مسافر حذف شد!",
         "label-passenger-type-not-deleted": "نوع مسافر پاک نشده است!",
         "label-passenger-type-updated": "نوع مسافر به روز شد",
-        "label-passenger-type-not-updated": "نوع مسافر به روز نشده است"
+        "label-passenger-type-not-updated": "نوع مسافر به روز نشده است",
+        "label-value-not-entered": "لطفا ارزش را وارد کنید"
     },
     "login-pop-up": {
         "label-logged-in": "وارد شده!",

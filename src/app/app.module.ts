@@ -43,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordComponent } from './leisure-consultants/password/password.component';
 
 
 
@@ -62,7 +63,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     FilterPipe,
     CheckHotelComponent,
     ButtonComponent,
-    DropdownComponent
+    DropdownComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     FilterPipeModule,
     NoopAnimationsModule
   ],
-  entryComponents: [ButtonComponent, DropdownComponent],
+  entryComponents: [ButtonComponent, DropdownComponent, PasswordComponent],
   providers: [UploadService, LoginService, PassengerTypeService, LeisureConsultantsService, HotelsService],
   bootstrap: [AppComponent]
 })

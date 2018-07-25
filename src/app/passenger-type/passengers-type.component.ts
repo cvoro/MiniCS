@@ -24,7 +24,8 @@ export class PassangersComponent implements OnInit {
     typeDeleted: '',
     typeNotDeleted: '',
     typeUpdated: '',
-    typeNotUpdated: ''
+    typeNotUpdated: '',
+    enterNotEntered: ''
   };
 
   constructor(private translate: TranslateService,
@@ -73,6 +74,9 @@ export class PassangersComponent implements OnInit {
     this.translate.get('passenger-type-pop-up.label-passenger-type-not-updated').subscribe(
       done => this.popUpMessages.typeNotUpdated = done
     );
+    this.translate.get('passenger-type-pop-up.label-value-not-entered').subscribe(
+      done => this.popUpMessages.enterNotEntered = done
+    );
   }
 
   changeDirection(lang) {
@@ -85,6 +89,7 @@ export class PassangersComponent implements OnInit {
   }
 
   addType(passengerType) {
+    if (this.passengerType.name !== '') {
     this.passengerTypeService.addNewPassengerType(passengerType).subscribe(
       done => {
         this.passengerTypeList.push(done);
@@ -92,6 +97,9 @@ export class PassangersComponent implements OnInit {
       },
       err => { this.toastr.error(this.popUpMessages.typeNotAdded); }
     );
+    } else {
+      this.toastr.warning(this.popUpMessages.enterNotEntered);
+    }
   }
 
   delete(i) {
@@ -111,19 +119,31 @@ export class PassangersComponent implements OnInit {
     this.passengerType.id = this.passengerTypeList[i].id;
   }
 
+  cancel() {
+    this.editButtonClicked = false;
+    this.passengerType = {
+      id: '',
+      name: ''
+    };
+  }
+
   save() {
-    this.passengerTypeService.updatePassengerType(this.passengerType).subscribe(
-      done => {
-        this.passengerTypeList[this.editIndex] = done;
-        this.editButtonClicked = false;
-        this.passengerType = {
-          id: '',
-          name: ''
-        };
-        this.toastr.success(this.popUpMessages.typeUpdated);
-       },
-      err => this.toastr.error(this.popUpMessages.typeNotUpdated)
-    );
+    if (this.passengerType.name !== '') {
+      this.passengerTypeService.updatePassengerType(this.passengerType).subscribe(
+        done => {
+          this.passengerTypeList[this.editIndex] = done;
+          this.editButtonClicked = false;
+          this.passengerType = {
+            id: '',
+            name: ''
+          };
+          this.toastr.success(this.popUpMessages.typeUpdated);
+         },
+        err => this.toastr.error(this.popUpMessages.typeNotUpdated)
+      );
+    } else {
+      this.toastr.warning(this.popUpMessages.enterNotEntered);
+    }
   }
 
 }

@@ -1,10 +1,14 @@
 <div class="container">
-    <h2>{{ 'passenger-type.label-add-passenger-type' | translate}}:</h2>
+    <h2>{{ 'passenger-type.label-add-passenger-type' | translate}}</h2>
+    
 <div class="form-group row">
   <label for="example-text-input" class="col-2 col-form-label">{{ 'passenger-type.label-type' | translate}}:</label>
   <div class="col-6">
     <input class="form-control" [(ngModel)]="passengerType.name" type="text" name="type" placeholder="Passanger type" id="example-text-input">
   </div>
+ <!-- <i *ngIf="!editButtonClicked" (click)="addType(passengerType)"  class="fas fa-plus"></i>
+ <i *ngIf="editButtonClicked" (click)="save(passengerType)" class="fas fa-check"></i>
+ <i *ngIf="editButtonClicked" (click)="cancel()" class="fas fa-times"></i> -->
   <button class="btn btn-success col-1"  *ngIf="!editButtonClicked" (click)="addType(passengerType)" >{{ 'passenger-type.label-add' | translate}}</button>
   <button class="btn btn-success col-1" *ngIf="editButtonClicked" (click)="save(passengerType)" >{{ 'passenger-type.label-save' | translate}}</button>
 </div>
@@ -22,7 +26,12 @@
       <tr *ngFor="let li of passengerTypeList;let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{li.name}}</td>
-        <td><button class="btn btn-danger" (click)="delete(i)">X</button> <button class="btn btn-primary" (click)="edit(i)">{{ 'passenger-type.label-edit' | translate}}</button></td>
+        <td>
+            <i class="fas fa-pencil-alt" (click)="edit(i)"></i>
+          <i class="fas fa-ban" (click)="delete(i)"></i>
+          
+          
+          <!-- <button class="btn btn-primary" (click)="edit(i)">{{ 'passenger-type.label-edit' | translate}}</button><button class="btn btn-danger" (click)="delete(i)">X</button> </td> -->
       </tr>
     </tbody>
   </table>

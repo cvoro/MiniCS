@@ -14,3 +14,41 @@ th {
 td {
     text-align: center;
 }
+
+
+  :host /deep/ .fa-ban {
+    color: red;
+    padding-left: 5%;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  :host /deep/ .fa-pencil-alt {
+    cursor: pointer;
+    color: blue;
+    padding-left:5%;
+    font-size: 20px;
+  }
+
+  :host /deep/ .fa-plus{
+    cursor: pointer;
+    color: blue;
+    text-align: center;
+    padding-top: 8px;
+    font-size: 20px;
+  }
+
+  :host /deep/ .fa-check{
+    cursor: pointer;
+    color: green;
+    padding-top: 8px;
+    font-size: 20px;
+  }
+
+  :host /deep/ .fa-times {
+    cursor: pointer;
+    padding-top: 8px;
+    margin-left: 10px;
+    color: red;
+    font-size: 20px;
+  }

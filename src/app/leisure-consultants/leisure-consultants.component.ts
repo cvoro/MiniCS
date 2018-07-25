@@ -3,6 +3,7 @@ import { hotels, pax } from './leisureMock';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LeisureConsultantsService } from './leisure-consultants.service';
 import { ToastrService } from 'ngx-toastr';
+import { PasswordComponent } from './password/password.component';
 
 @Component({
   selector: 'app-leisure-consultants',
@@ -73,7 +74,12 @@ addedConslutants = [];
         title: 'Username'
       },
       password: {
-       title: 'Password'
+       title: 'Password',
+       type: 'custom',
+       renderComponent: PasswordComponent,
+       editor: {
+         type: 'text'
+       }
       }
     }
   };
@@ -123,7 +129,6 @@ addedConslutants = [];
 
   addConsultant(consultant) {
     this.addedConslutants.push(consultant);
-    // console.log(this.addedConslutants);
   }
 
   updateRecord(event) {
@@ -140,8 +145,6 @@ addedConslutants = [];
   }
 
   deleteRecord(event) {
-    // console.log(event);
-    // console.log('delete');
     this.leisureService.deleteLeisureConsultant(event.data.id).subscribe(
       done => {
         this.toastr.success(this.popUpMessages.consultantDeleted);
@@ -154,7 +157,6 @@ addedConslutants = [];
   }
 
   createRecord(event) {
-    // console.log(event.newData);
     this.leisureService.addNewLeisureConsultant(event.newData).subscribe(
       done => {
         this.toastr.success(this.popUpMessages.consultantAdded);
