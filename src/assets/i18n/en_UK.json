@@ -90,6 +90,9 @@
         "label-upload-travel-list": "Upload Transfer_list",
         "label-upload-button": "Upload"
     },
+    "travel-list": {
+        "lavel-travel-list-table": "Travel list table"
+    },
     "manage-hotels": {
         "label-find-hotel": "Find hotel by name",
         "label-hotels-list": "Hotels List"

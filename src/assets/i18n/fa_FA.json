@@ -90,6 +90,9 @@
         "label-upload-travel-list": "بارگذاری نقل و انتقال لیست",
         "label-upload-button": "بارگذاری"
     },
+    "travel-list": {
+        "lavel-travel-list-table": "جدول جدول سفر"
+    },
     "manage-hotels": {
         "label-find-hotel": "هتل را بر اساس نام هتل پیدا کنید",
         "label-hotels-list": "لیست هتل ها"
