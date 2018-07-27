@@ -28,6 +28,7 @@
             <div class="form-group col-md-4">
               <label for="inputCity">{{'find-passenger.label-contact-number' | translate}}</label>
               <input type="text" [(ngModel)]="passanger.contact_Number" name="passanger.Contact_number" class="form-control" id="Paxname" >
+
             </div>
     
             <div class="form-group col-md-4">
@@ -65,7 +66,9 @@
 
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-pickup-time' | translate}}</label>
-                <input type="text" [(ngModel)]="passanger.pickup_Time"  name="passanger.pickup_Time" class="form-control" id="inputZip" >
+                <!-- <input type="text" [(ngModel)]="passanger.pickup_Time"  name="passanger.pickup_Time" class="form-control" id="inputZip" > -->
+              <angular2-date-picker (onDateSelect)="onDateSelect($event)" name="passenger.pickup_Time" [(ngModel)]="passanger.pickup_Time" [settings]="settings"></angular2-date-picker>
+
               </div>
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-remarks-field' | translate}}</label>

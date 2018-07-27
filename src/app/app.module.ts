@@ -45,6 +45,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordComponent } from './leisure-consultants/password/password.component';
 
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+
+
 
 
 @NgModule({
@@ -83,7 +86,8 @@ import { PasswordComponent } from './leisure-consultants/password/password.compo
     Ng2SmartTableModule,
     FormsModule,
     FilterPipeModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AngularDateTimePickerModule
   ],
   entryComponents: [ButtonComponent, DropdownComponent, PasswordComponent],
   providers: [UploadService, LoginService, PassengerTypeService, LeisureConsultantsService, HotelsService],

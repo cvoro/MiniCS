@@ -24,6 +24,14 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   };
   options: any[];
 
+  date: Date = new Date();
+	settings = {
+		bigBanner: true,
+		timePicker: true,
+    format: 'dd-MMM-yyyy hh:mm a',
+		defaultOpen: false
+	};
+
 
   constructor(private toastr: ToastrService,
               private translate: TranslateService,
@@ -60,6 +68,14 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
         items[i].style.direction = 'rtl';
       }
     }
+  }
+
+  onDateSelect(event) {
+    console.log(event);
+    let utcDate2 = new Date(event);
+    console.log(utcDate2.toUTCString());
+    
+    
   }
 
   savePassengerInfo() {
