@@ -22,3 +22,11 @@ input {
 
     height: 34px;
 }
+
+.wc-time-sec{
+    cursor: pointer;
+}
+
+.time {
+    cursor: pointer;
+}

@@ -7,6 +7,7 @@ import { TravelListService } from './travel-list.service';
 import { ToastrService } from 'ngx-toastr';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownService } from './dropdown/dropdown.service';
+import { UserStateComponent } from './user-state/user-state.component';
 
 @Component({
   selector: 'app-travel-list',
@@ -166,8 +167,14 @@ export class TravelListComponent implements OnInit {
             type: 'checkbox'
           }
         },
-        pickup_Time: {
+        pickup_time: {
              title: 'Pick up time'
+        },
+        state: {
+             title: 'Current state',
+             type: 'custom',
+            renderComponent: UserStateComponent,
+             editable: false
         },
         remarks_Field: {
              title: 'Remarks field'

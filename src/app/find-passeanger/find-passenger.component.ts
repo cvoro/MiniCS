@@ -24,7 +24,7 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   };
   options: any[];
 
-  date: Date = new Date();
+  // date: Date = new Date();
 	settings = {
 		bigBanner: true,
 		timePicker: true,
@@ -71,11 +71,9 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   }
 
   onDateSelect(event) {
-    console.log(event);
-    let utcDate2 = new Date(event);
-    console.log(utcDate2.toUTCString());
-    
-    
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+      console.log(event.UTC.toLocaleDateString('en-US', options));
+    // this.passanger.pickup_time = utcDate2.toLocaleDateString('de-DE', options)
   }
 
   savePassengerInfo() {

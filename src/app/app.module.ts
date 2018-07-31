@@ -46,6 +46,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordComponent } from './leisure-consultants/password/password.component';
 
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { UserStateComponent } from './travel-list/user-state/user-state.component';
 
 
 
@@ -67,7 +68,8 @@ import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
     CheckHotelComponent,
     ButtonComponent,
     DropdownComponent,
-    PasswordComponent
+    PasswordComponent,
+    UserStateComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,7 @@ import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
     NoopAnimationsModule,
     AngularDateTimePickerModule
   ],
-  entryComponents: [ButtonComponent, DropdownComponent, PasswordComponent],
+  entryComponents: [ButtonComponent, DropdownComponent, PasswordComponent, UserStateComponent], // all components from ng2 smart table
   providers: [UploadService, LoginService, PassengerTypeService, LeisureConsultantsService, HotelsService],
   bootstrap: [AppComponent]
 })

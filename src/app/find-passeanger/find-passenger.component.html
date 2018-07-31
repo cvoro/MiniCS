@@ -21,40 +21,45 @@
           <h2>{{'find-passenger.label-edit-fields' | translate}}</h2>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-leisure-consultant' | translate}}</label>
                 <input type="text" readonly [(ngModel)]="passanger.lC_First_Name + ' ' + passanger.lC_Last_Name" name="passanger.Leisure_consultants"  class="form-control" id="inputZip" >
               </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
               <label for="inputCity">{{'find-passenger.label-contact-number' | translate}}</label>
-              <input type="text" [(ngModel)]="passanger.contact_Number" name="passanger.Contact_number" class="form-control" id="Paxname" >
+              <input type="text" [(ngModel)]="passanger.contact_Number" placeholder="971551234567" name="passanger.Contact_number" class="form-control" id="Paxname" >
 
             </div>
     
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="inputState">{{'find-passenger.label-room-number' | translate}}</label>
                 <input type="text" [(ngModel)]="passanger.room_Number" name="passanger.Room_number" class="form-control" id="Pax name">
           </div>
+          <div class="form-group col-md-3">
+              <label for="inputZip">{{'find-passenger.label-current-state' | translate}}</label>
+              <br>
+              <app-user-state [value]="passanger.state"></app-user-state>
+            </div>
           </div>
           <div class="form-row">
-        <div class="form-group col-md-4">
-              <label for="inputZip">{{'find-passenger.label-passenger-type' | translate}}</label>
-              <!-- <input type="text" [(ngModel)]="passanger.passenger_type" name="passanger.Passenger_type" class="form-control" id="inputZip" > -->
-              <select class="form-control" name="passanger.Passenger_type" [(ngModel)]="passanger.passenger_Type"  id="exampleSelect1">
-                <option  *ngFor="let option of options" value="{{option.id}}">{{option.name}}</option>
-              </select>
-              
-        </div>
-        <div class="form-group col-md-4">
-                <label for="inputZip">{{'find-passenger.label-check-by-rep' | translate}}</label>
-                <input type="checkbox" [(ngModel)]="passanger.check_By_Rep" name="passanger.check_by_REP" class="form-control" id="inputZip" >
-              </div>
-              <div class="form-group col-md-4">
-                      <label for="inputZip">{{'find-passenger.label-check-by-rep' | translate}}</label>
-                      <input type="checkbox" [(ngModel)]="passanger.check_By_Lc" name="passanger.check_by_LC" class="form-control" id="inputZip" >
-              </div>
-        </div>
-        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputZip">{{'find-passenger.label-passenger-type' | translate}}</label>
+                <!-- <input type="text" [(ngModel)]="passanger.passenger_type" name="passanger.Passenger_type" class="form-control" id="inputZip" > -->
+                <select class="form-control" name="passanger.Passenger_type" [(ngModel)]="passanger.passenger_Type"  id="exampleSelect1">
+                  <option  *ngFor="let option of options" value="{{option.id}}">{{option.name}}</option>
+                </select>
+
+            </div>
+            <div class="form-group col-md-4">
+                  <label for="inputZip">{{'find-passenger.label-check-by-rep' | translate}}</label>
+                  <input type="checkbox" [(ngModel)]="passanger.check_By_Rep" name="passanger.check_by_REP" class="form-control" id="inputZip" >
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="inputZip">{{'find-passenger.label-check-by-rep' | translate}}</label>
+                        <input type="checkbox" [(ngModel)]="passanger.check_By_Lc" name="passanger.check_by_LC" class="form-control" id="inputZip" >
+                </div>
+            </div>
+          <div class="form-row">
           <div class="form-group col-md-3">
               <label for="inputZip">{{'find-passenger.label-datetime-arrival' | translate}}</label>
               <input type="text" readonly [ngModel]="passanger.datetime_Arrival | date:'medium'"  name="passanger.datetime_Arrival" class="form-control" id="inputZip" >
@@ -67,9 +72,10 @@
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-pickup-time' | translate}}</label>
                 <!-- <input type="text" [(ngModel)]="passanger.pickup_Time"  name="passanger.pickup_Time" class="form-control" id="inputZip" > -->
-              <angular2-date-picker (onDateSelect)="onDateSelect($event)" name="passenger.pickup_Time" [(ngModel)]="passanger.pickup_Time" [settings]="settings"></angular2-date-picker>
+              <angular2-date-picker (onDateSelect)="onDateSelect($event)" name="passenger.pickup_time" [(ngModel)]="passanger.pickup_time" [settings]="settings"></angular2-date-picker>
 
               </div>
+
               <div class="form-group col-md-3">
                 <label for="inputZip">{{'find-passenger.label-remarks-field' | translate}}</label>
                 <input type="text" [(ngModel)]="passanger.remarks_Field"  name="passanger.remarks_Field" class="form-control" id="inputZip" >

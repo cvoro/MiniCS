@@ -77,7 +77,8 @@
         "label-airline-departure": "خروج هواپیمایی",
         "label-flight-number-departure": "پرواز شماره خروج",
         "label-pickup-time": "زمان را انتخاب کنید",
-        "label-remarks-field": "قسمت نظرات"
+        "label-remarks-field": "قسمت نظرات",
+        "label-current-state": "وضعیت فعلی"
     },
     "upload": {
         "label-upload-file": "بارگذاری",

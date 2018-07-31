@@ -77,7 +77,8 @@
         "label-airline-departure": "Airline departure",
         "label-flight-number-departure": "Flight No. departure",
         "label-pickup-time": "Pick up time",
-        "label-remarks-field": "Remarks field"
+        "label-remarks-field": "Remarks field",
+        "label-current-state": "Current state"
     },
     "upload": {
         "label-upload-file": "Upload",

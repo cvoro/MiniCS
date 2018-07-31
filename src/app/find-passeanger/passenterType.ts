@@ -29,8 +29,9 @@ export const passengerType = {
     'terminal_Arrival': null,
     'terminal_Departure': null,
     'hotel_Name': '',
-    'pickup_Time': null,
+    'pickup_time': null,
     'remarks_Field': '',
+    'state': null,
     'hotel_Id': null,
     'lC_First_Name': '',
     'lC_Last_Name': ''
@@ -68,7 +69,8 @@ export class PassengerType {
     terminal_Departure: null;
     hotel_Name: string;
     hotel_Id: null;
-    pickup_Time: Date;
+    pickup_time: Date;
+    state: string;
     remarks_Field: string;
     lC_First_Name: string;
     lC_Last_Name: string;
