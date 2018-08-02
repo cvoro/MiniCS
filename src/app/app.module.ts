@@ -7,48 +7,39 @@ import { AppComponent } from './app.component';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { MiniCSRoutingModule } from './app-routing.module';
-import { UploadComponent } from './upload/upload.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LeisureConsultantsComponent } from './leisure-consultants/leisure-consultants.component';
-
-
 import { FormsModule } from '@angular/forms';
 import { SafeHtmlPipe } from './safeHTML.pipe';
-
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { TravelListComponent } from './travel-list/travel-list.component';
-import { HotelsComponent } from './hotels/hotels.component';
-
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FilterPipe } from './filter.pipe';
-
 import { FilterPipeModule } from 'ngx-filter-pipe';
-import { CheckHotelComponent } from './check-hotel/check-hotel.component';
-
-
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
-import { UploadService } from './upload/upload.service';
 import { LoginService } from './login/login.service';
-import { PassengerTypeService } from './passenger-type/passenger-type.service';
-import { PassangersComponent } from './passenger-type/passengers-type.component';
-import { LeisureConsultantsService } from './leisure-consultants/leisure-consultants.service';
-import { HotelsService } from './hotels/hotels.service';
-import { ButtonComponent } from './travel-list/button/button.component';
-import { FindPassangerComponent } from './find-passeanger/find-passenger.component';
-import { DropdownComponent } from './travel-list/dropdown/dropdown.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { UploadComponent } from './admin-panel/upload/upload.component';
+import { LeisureConsultantsComponent } from './admin-panel/leisure-consultants/leisure-consultants.component';
+import { TravelListComponent } from './navbar/travel-list/travel-list.component';
+import { HotelsComponent } from './admin-panel/manage-hotels/hotels.component';
+import { PassangersComponent } from './admin-panel/passenger-type/passengers-type.component';
+import { FindPassangerComponent } from './navbar/find-passeanger/find-passenger.component';
+import { CheckHotelComponent } from './navbar/check-hotel/check-hotel.component';
+import { ButtonComponent } from './navbar/travel-list/button/button.component';
+import { DropdownComponent } from './navbar/travel-list/dropdown/dropdown.component';
+import { PasswordComponent } from './admin-panel/leisure-consultants/password/password.component';
+import { UserStateComponent } from './navbar/travel-list/user-state/user-state.component';
+import { UploadService } from './admin-panel/upload/upload.service';
+import { PassengerTypeService } from './admin-panel/passenger-type/passenger-type.service';
+import { LeisureConsultantsService } from './admin-panel/leisure-consultants/leisure-consultants.service';
+import { HotelsService } from './admin-panel/manage-hotels/hotels.service';
+import { DateTimeComponent } from './navbar/travel-list/datetime/datetime.component';
+import { PickUpTimeComponent } from './navbar/travel-list/pick-up-time/pick-up-time.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { PasswordComponent } from './leisure-consultants/password/password.component';
-
-import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
-import { UserStateComponent } from './travel-list/user-state/user-state.component';
-
-
 
 
 @NgModule({
@@ -69,7 +60,9 @@ import { UserStateComponent } from './travel-list/user-state/user-state.componen
     ButtonComponent,
     DropdownComponent,
     PasswordComponent,
-    UserStateComponent
+    UserStateComponent,
+    PickUpTimeComponent,
+    DateTimeComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +84,13 @@ import { UserStateComponent } from './travel-list/user-state/user-state.componen
     NoopAnimationsModule,
     AngularDateTimePickerModule
   ],
-  entryComponents: [ButtonComponent, DropdownComponent, PasswordComponent, UserStateComponent], // all components from ng2 smart table
+  entryComponents: [
+    ButtonComponent,
+    DropdownComponent,
+    PasswordComponent,
+    UserStateComponent,
+    DateTimeComponent,
+    PickUpTimeComponent], // all components from ng2 smart table
   providers: [UploadService, LoginService, PassengerTypeService, LeisureConsultantsService, HotelsService],
   bootstrap: [AppComponent]
 })

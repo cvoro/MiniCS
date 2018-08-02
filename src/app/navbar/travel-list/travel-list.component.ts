@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownService } from './dropdown/dropdown.service';
 import { UserStateComponent } from './user-state/user-state.component';
+import { DateTimeComponent } from './datetime/datetime.component';
+import { PickUpTimeComponent } from './pick-up-time/pick-up-time.component';
 
 @Component({
   selector: 'app-travel-list',
@@ -168,7 +170,13 @@ export class TravelListComponent implements OnInit {
           }
         },
         pickup_time: {
-             title: 'Pick up time'
+            title: 'Pick up time',
+            type: 'custom',
+            renderComponent: DateTimeComponent,
+            editor: {
+              type: 'custom',
+              component: PickUpTimeComponent
+            }
         },
         state: {
              title: 'Current state',
@@ -189,6 +197,8 @@ export class TravelListComponent implements OnInit {
         },
         datetime_Arrival: {
              title: 'Date & Time  arrival',
+             type: 'custom',
+             renderComponent: DateTimeComponent,
              editable: false
         },
         terminal_Arrival: {
@@ -221,6 +231,8 @@ export class TravelListComponent implements OnInit {
         },
         datetime_Departure: {
              title: 'Date & Time departure',
+             type: 'custom',
+             renderComponent: DateTimeComponent,
              editable: false
         },
         terminal_Departure: {
@@ -257,7 +269,7 @@ export class TravelListComponent implements OnInit {
     this.translate.get('travel-list-pup-up.label-row-updated').subscribe(
       done => this.popUpMessages.rowUpdated = done
     );
-    this.translate.get('travel-list-pup-up.label-row-updated').subscribe(
+    this.translate.get('travel-list-pup-up.label-row-not-updated').subscribe(
       done => this.popUpMessages.rowNotUpdated = done
     );
     this.translate.get('travel-list-pup-up.label-travels-not-loaded').subscribe(
@@ -292,10 +304,12 @@ export class TravelListComponent implements OnInit {
 
   updateRecord(event) {
     // console.log(event);
+    event.newData.pickup_time = localStorage.getItem('newDate');
     this.travelService.updateTravelInfo(event.newData).subscribe(
       done => {
         event.confirm.resolve(event.newData);
         this.toastr.success(this.popUpMessages.rowUpdated);
+        localStorage.setItem('newDate', 'null');
       },
       err => {
         this.toastr.error(this.popUpMessages.rowNotUpdated);
@@ -304,7 +318,9 @@ export class TravelListComponent implements OnInit {
   }
 
   rowSelected(event) {
-    // console.log(event);
+    if (localStorage.getItem('newDate') === 'null') {
+      localStorage.setItem('newDate', event.data.pickup_time);
+    }
   }
 
 }

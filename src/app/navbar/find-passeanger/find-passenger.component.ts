@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { FindPassengerService } from './find-passenger.service';
 import { passengerType, PassengerType } from './passenterType';
+import { DatePicker } from 'angular2-datetimepicker';
 
 @Component({
   selector: 'app-find-passenger',
@@ -47,6 +48,15 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
       this.getTranslations();
     });
     this.getTranslations();
+
+    // prevent console error for getMonth()
+    DatePicker.prototype.ngOnInit = function() {
+      this.settings = Object.assign(this.defaultSettings, this.settings);
+      if (this.settings.defaultOpen) {
+      this.popover = true;
+      }
+      this.date = new Date();
+      };
    }
 
    ngOnInit() {
@@ -71,9 +81,14 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   }
 
   onDateSelect(event) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-      console.log(event.UTC.toLocaleDateString('en-US', options));
-    // this.passanger.pickup_time = utcDate2.toLocaleDateString('de-DE', options)
+    // const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    //   console.log(event.toLocaleDateString('en-US', options));
+    //   console.log(event.toISOString());
+    //   console.log(event.toLocaleString('en-US'));
+    // // this.passanger.pickup_time = event.toLocaleDateString('de-DE', options);
+    this.passanger.pickup_time = event.toISOString();
+    console.log(this.passanger.pickup_time);
+    
   }
 
   savePassengerInfo() {

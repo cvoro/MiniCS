@@ -1,16 +1,16 @@
-import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UploadComponent } from './upload/upload.component';
-import { LeisureConsultantsComponent } from './leisure-consultants/leisure-consultants.component';
-import { TravelListComponent } from './travel-list/travel-list.component';
-import { HotelsComponent } from './hotels/hotels.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { CheckHotelComponent } from './check-hotel/check-hotel.component';
 import { AdminGuard } from './admin.guard';
-import { PassangersComponent } from './passenger-type/passengers-type.component';
-import { FindPassangerComponent } from './find-passeanger/find-passenger.component';
 import { RouteGuard } from './route.guard';
+import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { UploadComponent } from './admin-panel/upload/upload.component';
+import { LeisureConsultantsComponent } from './admin-panel/leisure-consultants/leisure-consultants.component';
+import { TravelListComponent } from './navbar/travel-list/travel-list.component';
+import { HotelsComponent } from './admin-panel/manage-hotels/hotels.component';
+import { PassangersComponent } from './admin-panel/passenger-type/passengers-type.component';
+import { FindPassangerComponent } from './navbar/find-passeanger/find-passenger.component';
+import { CheckHotelComponent } from './navbar/check-hotel/check-hotel.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent},
