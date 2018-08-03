@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { settings } from './settings';
-import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { ButtonComponent } from './button/button.component';
 import { TravelListService } from './travel-list.service';
@@ -10,6 +8,8 @@ import { DropdownService } from './dropdown/dropdown.service';
 import { UserStateComponent } from './user-state/user-state.component';
 import { DateTimeComponent } from './datetime/datetime.component';
 import { PickUpTimeComponent } from './pick-up-time/pick-up-time.component';
+
+
 
 @Component({
   selector: 'app-travel-list',
@@ -29,11 +29,10 @@ export class TravelListComponent implements OnInit {
     travelsNotLoaded: ''
   };
 
-  constructor(private _sanitizer: DomSanitizer,
-              private translate: TranslateService,
+  constructor(private translate: TranslateService,
               private travelService: TravelListService,
               private toastr: ToastrService,
-              private dropdownService: DropdownService) {
+              private dropdownService: DropdownService,) {
                 this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
                     this.getTranslations();
                 });
@@ -78,8 +77,10 @@ export class TravelListComponent implements OnInit {
     });
   }
 
+
   addSettings() {
     return {
+      mode: external,
       add: {
         addButtonContent: '<i class="fas fa-plus"></i>',
         createButtonContent: '<i class="fas fa-check"></i>',
@@ -88,7 +89,7 @@ export class TravelListComponent implements OnInit {
       edit: {
         editButtonContent: '<i class="fas fa-pencil-alt"></i>',
         saveButtonContent: '<i class="fas fa-check"></i>',
-        cancelButtonContent: '<i class="fas fa-times"></i>',
+        cancelButtonContent: '<i class="fas fa-times" ></i>',
         confirmSave: true
       },
       delete: {
@@ -309,7 +310,7 @@ export class TravelListComponent implements OnInit {
       done => {
         event.confirm.resolve(event.newData);
         this.toastr.success(this.popUpMessages.rowUpdated);
-        localStorage.setItem('newDate', 'null');
+        localStorage.removeItem('newDate');
       },
       err => {
         this.toastr.error(this.popUpMessages.rowNotUpdated);
@@ -318,9 +319,13 @@ export class TravelListComponent implements OnInit {
   }
 
   rowSelected(event) {
-    if (localStorage.getItem('newDate') === 'null') {
+    if (event.data.pickup_time === null) {
+      localStorage.removeItem('newDate');
+    }
+    
+    if (localStorage.getItem('newDate') === 'null' || localStorage.getItem('newDate') === null) {
       localStorage.setItem('newDate', event.data.pickup_time);
     }
+    console.log(localStorage.getItem('newDate'));
   }
-
 }

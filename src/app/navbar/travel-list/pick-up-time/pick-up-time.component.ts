@@ -20,6 +20,11 @@ export class PickUpTimeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (localStorage.getItem('newDate') === 'null' || localStorage.getItem('newDate') === null) {
+      this.value = new Date();
+    } else {
+      this.value = new Date(localStorage.getItem('newDate'));
+    }
   }
 
   onDateSelect(event) {

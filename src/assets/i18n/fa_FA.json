@@ -167,5 +167,25 @@
     "check-hotel-pop-up": {
         "label-hotel-hot-found": "هتل یافت نشد",
         "label-hotel-not-assigned": "هیچ هتل جت قطعی نیست!"
+    },
+    "telegram-bot": {
+        "contact-customer-service": "با خدمات مشتریان تماس بگیرید",
+        "when-is-my-pickup": "وقتی در وانت من",
+        "pickup-time-is": "زمان انتخاب شما [vreme] در [datum] است",
+        "pickup-time-not-defined": "زمان برداشت شما هنوز تعیین نشده است. ما به شما ASAP اطلاع خواهیم داد",
+        "do-you-want-to-use-transport": "آیا می خواهید به حمل و نقل خود بپردازید؟",
+        "yes": "بله",
+        "no": "نه",
+        "be-ready-10-minutes-before": "لطفا آماده شود 10 دقیقه قبل از زمان واریز",
+        "confirm-cancel-of-pickup": "لطفا تأیید کنید که میخواهید لغو انتخاب کنید",
+        "go-to-airport-to-catch-flight": "لطفا در زمان مناسب به فرودگاه بروید تا اطمینان حاصل کنید که پرواز خود را دریافت کرده اید.",
+        "if-you-changed-your-mind-contact-customer-service": "اگر ذهن خود را تغییر دهید، لطفا با خدمات مشتری تماس بگیرید",
+        "thank-you-and-have-save-flight": "با تشکر از شما و ما برای شما آرزوی پرواز امن!",
+        "welcome-to-minics": "به MiniCS خوش آمدید",
+        "please-share-number": "لطفا برای دریافت اطلاعیه ها، شماره خود را به اشتراک بگذارید!",
+        "thank-you-for-sharing": "با تشکر از شما برای به اشتراک گذاشتن شماره خود را",
+        "minics-menu": "منوی MiniCS",
+        "customer-service-contact-number": "در اینجا شماره تماس از خدمات مشتری به اشتراک گذاشته خواهد شد",
+        "back-to-minics-menu": "بازگشت به منوی MiniCS"
     }
 }

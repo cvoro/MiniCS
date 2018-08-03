@@ -81,14 +81,7 @@ export class FindPassangerComponent implements OnInit, OnDestroy {
   }
 
   onDateSelect(event) {
-    // const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-    //   console.log(event.toLocaleDateString('en-US', options));
-    //   console.log(event.toISOString());
-    //   console.log(event.toLocaleString('en-US'));
-    // // this.passanger.pickup_time = event.toLocaleDateString('de-DE', options);
     this.passanger.pickup_time = event.toISOString();
-    console.log(this.passanger.pickup_time);
-    
   }
 
   savePassengerInfo() {

@@ -45,6 +45,10 @@ export class UserStateComponent implements OnInit {
     NULL: {
       value: 'Not defined',
       color: 'black'
+    },
+    SUEVEY_STATE: {
+      value: 'Suervey answering',
+      color: 'black'
     }
   };
 
